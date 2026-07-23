@@ -1,10 +1,9 @@
 baseURL = "https://mmoalla.github.io/d365-blog/"
+theme = "PaperMod"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
-title = "D365 Tech Blog"
-theme = "PaperMod"
 
-paginate = 5
+paginate = 10
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
@@ -13,20 +12,16 @@ buildExpired = false
 [params]
   env = "production"
   keywords = ["Dynamics 365", "F&O", "X++", "Power Platform", "Power Automate", "Azure", "Microsoft"]
-  author = "Mehdi MOALLA"
+  author = "Ton Nom"
   DateFormat = "2 January 2006"
   defaultTheme = "auto"
   ShowReadingTime = true
-  ShowShareButtons = false
+  ShowShareButtons = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = false
-
-  [params.homeInfoParams]
-    Title = "D365 F&O Tech Blog 👋"
-    Content = "Tutoriels et retours d'expérience sur Dynamics 365 Finance & Operations, X++, Power Platform et l'écosystème Azure/Microsoft."
 
 [taxonomies]
   category = "categories"
@@ -41,64 +36,65 @@ buildExpired = false
   lineNos = true
   codeFences = true
 
-[languages]
-  [languages.en]
-    label = "English"
-    locale = "en-us"
-    weight = 2
-    title = "D365 F&O Tech Blog"
-    [languages.en.params]
-      description = "Technical tutorials on Dynamics 365 Finance & Operations, Power Platform and the Microsoft ecosystem"
-    [languages.en.params.homeInfoParams]
-      Title = "D365 F&O Tech Blog 👋"
-      Content = "Tutorials and experience reports on Dynamics 365 Finance & Operations, X++, Power Platform and the Azure/Microsoft ecosystem."
-    [[languages.en.menu.main]]
-      identifier = "posts"
-      name = "Posts"
-      url = "/posts/"
-      weight = 10
-    [[languages.en.menu.main]]
-      identifier = "categories"
-      name = "Categories"
-      url = "/categories/"
-      weight = 20
-    [[languages.en.menu.main]]
-      identifier = "tags"
-      name = "Tags"
-      url = "/tags/"
-      weight = 30
-    [[languages.en.menu.main]]
-      identifier = "about"
-      name = "About"
-      url = "/about/"
-      weight = 40
+  [languages]
   [languages.fr]
     label = "Français"
-    locale = "fr-fr"
+    locale = "fr-FR"
     weight = 1
     title = "D365 F&O Tech Blog"
     [languages.fr.params]
       description = "Tutoriels techniques sur Dynamics 365 Finance & Operations, Power Platform et l'écosystème Microsoft"
-    [languages.fr.params.homeInfoParams]
-      Title = "D365 F&O Tech Blog 👋"
-      Content = "Tutoriels et retours d'expérience sur Dynamics 365 Finance & Operations, X++, Power Platform et l'écosystème Azure/Microsoft."
+      [languages.fr.params.homeInfoParams]
+        Title = "D365 F&O Tech Blog 👋"
+        Content = "Tutoriels et retours d'expérience sur Dynamics 365 Finance & Operations, X++, Power Platform et l'écosystème Azure/Microsoft."
     [[languages.fr.menu.main]]
       identifier = "posts"
       name = "Articles"
-      url = "/posts/"
+      url = "posts/"
       weight = 10
     [[languages.fr.menu.main]]
       identifier = "categories"
       name = "Catégories"
-      url = "/categories/"
+      url = "categories/"
       weight = 20
     [[languages.fr.menu.main]]
       identifier = "tags"
       name = "Tags"
-      url = "/tags/"
+      url = "tags/"
       weight = 30
     [[languages.fr.menu.main]]
       identifier = "about"
       name = "À propos"
-      url = "/about/"
+      url = "about/"
+      weight = 40
+
+  [languages.en]
+    label = "English"
+    locale = "en-US"
+    weight = 2
+    title = "D365 F&O Tech Blog"
+    [languages.en.params]
+      description = "Technical tutorials on Dynamics 365 Finance & Operations, Power Platform and the Microsoft ecosystem"
+      [languages.en.params.homeInfoParams]
+        Title = "D365 F&O Tech Blog 👋"
+        Content = "Tutorials and experience reports on Dynamics 365 Finance & Operations, X++, Power Platform and the Azure/Microsoft ecosystem."
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "Posts"
+      url = "posts/"
+      weight = 10
+    [[languages.en.menu.main]]
+      identifier = "categories"
+      name = "Categories"
+      url = "categories/"
+      weight = 20
+    [[languages.en.menu.main]]
+      identifier = "tags"
+      name = "Tags"
+      url = "tags/"
+      weight = 30
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "about/"
       weight = 40
