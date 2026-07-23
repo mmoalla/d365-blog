@@ -12,15 +12,14 @@ Dans Dynamics 365 Finance & Operations, il est interdit de modifier directement 
 
 Deux mécanismes principaux existent pour intervenir sur du code existant :
 
-- **Chain of Command (CoC)** : pour étendre le comportement d'une méthode existante (avant/après/autour de son exécution)
-- **Event Handlers** : pour réagir à des événements précis (`Created`, `Updated`, `Deleted`, `ValidateWrite`...) sans modifier la logique elle-même
+- **Chain of Command (CoC)** : Permet d’**étendre ou de modifier le comportement d’une méthode existante** sans la remplacer.
+- **Event Handlers** : Servent à répondre à des événements déclenchés par le système ou par l’utilisateur, comme les clics sur un bouton, les modifications de champ ou les mises à jour d’enregistrements, sans toucher à l’objet de base.
 
-Ce tuto se concentre sur les **Event Handlers**, souvent le choix le plus simple et le plus sûr pour des besoins comme : déclencher une notification, écrire un log, valider une règle métier additionnelle, ou synchroniser une donnée vers un système externe.
+ **Utilise un Event Handler lorsque:** tu veux exécuter une logique à l’occurrence d’un événement. Tu souhaites éviter de modifier le code existant. C’est particulièrement adapté aux événements liés à **l’interface, aux données et à la validation.**
 
 ## Prérequis
 - Dynamics 365 F&O version 10.0.x (Tier 1 dev box ou cloud-hosted environment ou UDE)
 - Visual Studio.
-- Droits d'écriture sur le modèle et accès au Application Explorer
 
 ## Étapes
 ### 1. Créer le projet et la classe d'extension
@@ -82,10 +81,6 @@ public static void SalesTable_Pre_insert(XppPrePostArgs args)
     }
 }
 ```
-
-### 5. Compiler et tester
-- Compile le projet (Build ou Rebuild)
-- Teste en créant une commande de vente manuellement.
 
 ## Pièges courants
 - **Event handlers multiples sur le même événement** : l'ordre d'exécution entre extensions de différents modèles n'est pas garanti, évite les dépendances d'ordre
