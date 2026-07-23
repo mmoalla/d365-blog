@@ -6,7 +6,7 @@ ShowToc: false
 ShowShareButtons: false
 ---
 
-{{< img src="images/profile.jpg" alt="Photo de profil" width="150" style="border-radius: 50%;" >}}
+{{< img src="images/profile.jpg" alt="Photo de profil" width="150" style="border-radius: 50%;" >}} 
 
 Je suis architecte technique freelance sur **Dynamics 365 Finance & Operations**, et ce blog rassemble mes notes techniques, tutoriels et retours d'expérience sur l'écosystème Microsoft :
 
