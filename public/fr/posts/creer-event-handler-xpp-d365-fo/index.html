@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><script src="/d365-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=d365-blog/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="X&#43;&#43;, Event Handler, Extensions, Chain of Command">
 <meta name="description" content="Comment intercepter proprement un événement standard dans D365 F&amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.">
 <meta name="author" content="Mehdi MOALLA">
-<link rel="canonical" href="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="canonical" href="http://localhost:1313/d365-blog/fr/posts/creer-event-handler-xpp-d365-fo/">
+<link crossorigin="anonymous" href="/d365-blog/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/d365-blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/d365-blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/d365-blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/d365-blog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/d365-blog/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="fr" href="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/creer-event-handler-xpp-d365-fo/">
+<link rel="alternate" hreflang="fr" href="http://localhost:1313/d365-blog/fr/posts/creer-event-handler-xpp-d365-fo/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/d365-blog/posts/creer-event-handler-xpp-d365-fo/">
 <noscript>
     <style>
         #theme-toggle,
@@ -65,7 +65,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/">
+</script><meta property="og:url" content="http://localhost:1313/d365-blog/fr/posts/creer-event-handler-xpp-d365-fo/">
   <meta property="og:site_name" content="D365 F&O Tech Blog">
   <meta property="og:title" content="Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&O">
   <meta property="og:description" content="Comment intercepter proprement un événement standard dans D365 F&amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.">
@@ -93,13 +93,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/fr/posts/"
+      "item": "http://localhost:1313/d365-blog/fr/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Créer un Event Handler en X++ dans Dynamics 365 F\u0026O",
-      "item": "http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/"
+      "item": "http://localhost:1313/d365-blog/fr/posts/creer-event-handler-xpp-d365-fo/"
     }
   ]
 }
@@ -125,14 +125,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/"
+    "@id": "http://localhost:1313/d365-blog/fr/posts/creer-event-handler-xpp-d365-fo/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "D365 F\u0026O Tech Blog",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "http://localhost:1313/d365-blog/favicon.ico"
     }
   }
 }
@@ -142,7 +142,7 @@
     <header class="header">
     <nav class="header-nav">
         <div class="logo">
-            <a href="http://localhost:1313/fr/" accesskey="h" title="D365 F&amp;O Tech Blog (Alt + H)">D365 F&amp;O Tech Blog</a>
+            <a href="http://localhost:1313/d365-blog/fr/" accesskey="h" title="D365 F&amp;O Tech Blog (Alt + H)">D365 F&amp;O Tech Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -166,7 +166,7 @@
                 </button><span class="nav-sep">|</span>
                     <ul class="lang-menu">
                         <li>
-                            <a href="http://localhost:1313/" title="English"
+                            <a href="http://localhost:1313/d365-blog/" title="English"
                                 aria-label="English">En</a>
                         </li>
                     </ul>
@@ -174,22 +174,22 @@
         </div>
         <ul id="menu" class="menu">
             <li>
-                <a href="http://localhost:1313/fr/posts/" title="Articles">
+                <a href="http://localhost:1313/fr/d365-blog/posts/" title="Articles">
                     <span>Articles</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/fr/categories/" title="Catégories">
+                <a href="http://localhost:1313/fr/d365-blog/categories/" title="Catégories">
                     <span>Catégories</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/fr/tags/" title="Tags">
+                <a href="http://localhost:1313/fr/d365-blog/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/fr/about/" title="À propos">
+                <a href="http://localhost:1313/fr/d365-blog/about/" title="À propos">
                     <span>À propos</span>
                 </a>
             </li>
@@ -201,12 +201,12 @@
 <article class="post-single">
   <header class="post-header">
     <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
-            <a href="/fr/">Accueil</a>
+            <a href="/d365-blog/fr/">Accueil</a>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
                 <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
-            <a href="/fr/posts/">Posts</a>
+            <a href="/d365-blog/fr/posts/">Posts</a>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
         stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
         <polyline points="9 18 15 12 9 6"></polyline>
@@ -220,7 +220,7 @@
 <span title='2026-07-22 00:00:00 +0000 UTC'>22 juillet 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mehdi MOALLA</span>&nbsp;|&nbsp;<span>Traductions:</span>
     <ul class="i18n_list">
         <li>
-            <a href="http://localhost:1313/posts/creer-event-handler-xpp-d365-fo/">En</a>
+            <a href="http://localhost:1313/d365-blog/posts/creer-event-handler-xpp-d365-fo/">En</a>
         </li>
     </ul>
 
@@ -280,8 +280,18 @@
 }
 </code></pre><h3 id="2-identifier-lévénement-à-intercepter">2. Identifier l&rsquo;événement à intercepter<a hidden class="anchor" aria-hidden="true" href="#2-identifier-lévénement-à-intercepter">#</a></h3>
 <p>Ouvre la table <code>CustTable</code> dans l&rsquo;Application Explorer et repère la méthode <code>confirmAndSaveCustGroupChange()</code>. On veut ici exécuter une action <strong>après</strong> la création d&rsquo;une commande de vente.</p>
-<img src="/images/eventHandler/SalesTable.png" alt="Sales table object" />
-<img src="/images/eventHandler/SalesCopyEvent.png" alt="select method for event handler" />
+<p><img
+    src="/d365-blog/images/eventHandler/SalesTable.png"
+    alt="Sales table object"
+    
+    
+/>
+<img
+    src="/d365-blog/images/eventHandler/SalesCopyEvent.png"
+    alt="Sales table object"
+    
+    
+/></p>
 <p>Deux options d&rsquo;événements existent pour la plupart des méthodes standard :</p>
 <ul>
 <li><code>[PostHandlerFor]</code> — s&rsquo;exécute après la méthode originale</li>
@@ -342,10 +352,10 @@ public static void SalesTable_Pre_insert(XppPrePostArgs args)
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/fr/tags/x&#43;&#43;/">X&#43;&#43;</a></li>
-      <li><a href="http://localhost:1313/fr/tags/event-handler/">Event Handler</a></li>
-      <li><a href="http://localhost:1313/fr/tags/extensions/">Extensions</a></li>
-      <li><a href="http://localhost:1313/fr/tags/chain-of-command/">Chain of Command</a></li>
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/x&#43;&#43;/">X&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/event-handler/">Event Handler</a></li>
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/extensions/">Extensions</a></li>
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/chain-of-command/">Chain of Command</a></li>
     </ul>
 
   </footer>
@@ -353,7 +363,7 @@ public static void SalesTable_Pre_insert(XppPrePostArgs args)
     </main>
     
 <footer class="footer">
-        <span>&copy; 2026 <a href="http://localhost:1313/fr/">D365 F&amp;O Tech Blog</a></span> · 
+        <span>&copy; 2026 <a href="http://localhost:1313/d365-blog/fr/">D365 F&amp;O Tech Blog</a></span> · 
 
     
     

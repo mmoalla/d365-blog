@@ -35,8 +35,8 @@ public class CustTableHandler
 ### 2. Identifier l'événement à intercepter
 Ouvre la table `CustTable` dans l'Application Explorer et repère la méthode `confirmAndSaveCustGroupChange()`. On veut ici exécuter une action **après** la création d'une commande de vente.
 
-{{< img src="images/eventHandler/SalesTable.png" alt="Sales table object" />}}
-{{< img src="images/eventHandler/SalesCopyEvent.png" alt="Sales table object" />}}
+{{< img src="images/eventHandler/SalesTable.png" alt="Sales table object" >}}
+{{< img src="images/eventHandler/SalesCopyEvent.png" alt="Sales table object" >}}
 
 Deux options d'événements existent pour la plupart des méthodes standard :
 - `[PostHandlerFor]` — s'exécute après la méthode originale

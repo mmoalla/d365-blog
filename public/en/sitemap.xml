@@ -2,146 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/d365-blog/categories/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/categories/"
+                href="http://localhost:1313/d365-blog/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/categories/"
+                href="http://localhost:1313/d365-blog/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/chain-of-command/</loc>
+    <loc>http://localhost:1313/d365-blog/tags/chain-of-command/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/tags/chain-of-command/"
+                href="http://localhost:1313/d365-blog/fr/tags/chain-of-command/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/tags/chain-of-command/"
+                href="http://localhost:1313/d365-blog/tags/chain-of-command/"
                 />
   </url><url>
-    <loc>http://localhost:1313/posts/creer-event-handler-xpp-d365-fo/</loc>
+    <loc>http://localhost:1313/d365-blog/posts/creer-event-handler-xpp-d365-fo/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/"
+                href="http://localhost:1313/d365-blog/fr/posts/creer-event-handler-xpp-d365-fo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/posts/creer-event-handler-xpp-d365-fo/"
+                href="http://localhost:1313/d365-blog/posts/creer-event-handler-xpp-d365-fo/"
                 />
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/d365-blog/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/"
+                href="http://localhost:1313/d365-blog/fr/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/"
+                href="http://localhost:1313/d365-blog/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/event-handler/</loc>
+    <loc>http://localhost:1313/d365-blog/tags/event-handler/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/tags/event-handler/"
+                href="http://localhost:1313/d365-blog/fr/tags/event-handler/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/tags/event-handler/"
+                href="http://localhost:1313/d365-blog/tags/event-handler/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/extensions/</loc>
+    <loc>http://localhost:1313/d365-blog/tags/extensions/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/tags/extensions/"
+                href="http://localhost:1313/d365-blog/fr/tags/extensions/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/tags/extensions/"
+                href="http://localhost:1313/d365-blog/tags/extensions/"
                 />
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://localhost:1313/d365-blog/posts/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/posts/"
+                href="http://localhost:1313/d365-blog/fr/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/posts/"
+                href="http://localhost:1313/d365-blog/posts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/d365-blog/tags/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/tags/"
+                href="http://localhost:1313/d365-blog/fr/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/tags/"
+                href="http://localhost:1313/d365-blog/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tags/x&#43;&#43;/</loc>
+    <loc>http://localhost:1313/d365-blog/tags/x&#43;&#43;/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/tags/x&#43;&#43;/"
+                href="http://localhost:1313/d365-blog/fr/tags/x&#43;&#43;/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/tags/x&#43;&#43;/"
+                href="http://localhost:1313/d365-blog/tags/x&#43;&#43;/"
                 />
   </url><url>
-    <loc>http://localhost:1313/categories/x&#43;&#43;--dev/</loc>
+    <loc>http://localhost:1313/d365-blog/categories/x&#43;&#43;--dev/</loc>
     <lastmod>2026-07-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/categories/x&#43;&#43;--dev/"
+                href="http://localhost:1313/d365-blog/fr/categories/x&#43;&#43;--dev/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/categories/x&#43;&#43;--dev/"
+                href="http://localhost:1313/d365-blog/categories/x&#43;&#43;--dev/"
                 />
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>http://localhost:1313/d365-blog/about/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-fr"
-                href="http://localhost:1313/fr/about/"
+                href="http://localhost:1313/d365-blog/fr/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/about/"
+                href="http://localhost:1313/d365-blog/about/"
                 />
   </url>
 </urlset>
