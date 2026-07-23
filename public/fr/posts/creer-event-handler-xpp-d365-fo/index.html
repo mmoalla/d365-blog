@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&amp;O | D365 F&amp;O Tech Blog</title>
+<meta name="keywords" content="X&#43;&#43;, Event Handler, Extensions, Chain of Command">
+<meta name="description" content="Comment intercepter proprement un événement standard dans D365 F&amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.">
+<meta name="author" content="Mehdi MOALLA">
+<link rel="canonical" href="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="fr" href="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/creer-event-handler-xpp-d365-fo/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/">
+  <meta property="og:site_name" content="D365 F&O Tech Blog">
+  <meta property="og:title" content="Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&O">
+  <meta property="og:description" content="Comment intercepter proprement un événement standard dans D365 F&amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.">
+  <meta property="og:locale" content="fr_fr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-07-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-07-22T00:00:00+00:00">
+    <meta property="article:tag" content="X&#43;&#43;">
+    <meta property="article:tag" content="Event Handler">
+    <meta property="article:tag" content="Extensions">
+    <meta property="article:tag" content="Chain of Command">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&O">
+  <meta name="twitter:description" content="Comment intercepter proprement un événement standard dans D365 F&amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/fr/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Créer un Event Handler en X++ dans Dynamics 365 F\u0026O",
+      "item": "http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Créer un Event Handler en X++ dans Dynamics 365 F\u0026O",
+  "name": "Créer un Event Handler en X\u002b\u002b dans Dynamics 365 F\u0026O",
+  "description": "Comment intercepter proprement un événement standard dans D365 F\u0026amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.",
+  "keywords": [
+    "X++", "Event Handler", "Extensions", "Chain of Command"
+  ],
+  "articleBody": "Contexte Dans Dynamics 365 Finance \u0026 Operations, il est interdit de modifier directement le code standard Microsoft (le modèle “over-layering” a disparu depuis AX 2012). Toute personnalisation doit passer par des extensions.\nDeux mécanismes principaux existent pour intervenir sur du code existant :\nChain of Command (CoC) : pour étendre le comportement d’une méthode existante (avant/après/autour de son exécution) Event Handlers : pour réagir à des événements précis (Created, Updated, Deleted, ValidateWrite…) sans modifier la logique elle-même Ce tuto se concentre sur les Event Handlers, souvent le choix le plus simple et le plus sûr pour des besoins comme : déclencher une notification, écrire un log, valider une règle métier additionnelle, ou synchroniser une donnée vers un système externe.\nPrérequis Dynamics 365 F\u0026O version 10.0.x (Tier 1 dev box ou cloud-hosted environment ou UDE) Visual Studio. Droits d’écriture sur le modèle et accès au Application Explorer Étapes 1. Créer le projet et la classe d’extension Dans Visual Studio, crée un nouveau projet D365 F\u0026O, puis ajoute une classe d’événement :\npublic class CustTableHandler { } 2. Identifier l’événement à intercepter Ouvre la table CustTable dans l’Application Explorer et repère la méthode confirmAndSaveCustGroupChange(). On veut ici exécuter une action après la création d’une commande de vente.\nDeux options d’événements existent pour la plupart des méthodes standard :\n[PostHandlerFor] — s’exécute après la méthode originale [PreHandlerFor] — s’exécute avant la méthode originale 3. Écrire le Post Event Handler class CustTableHandler { [PreHandlerFor(tableStr(CustTable), tableStaticMethodStr(CustTable, confirmAndSaveCustGroupChange))] public static void CustTable_Post_confirmAndSaveCustGroupChange(XppPrePostArgs args) { //Object instance of the CustTable table CustTable custTable = args.getThis(); //parameter value in confirmAndSaveCustGroupChange method boolean isCustGroupSetOnce = args.getArg('isCustGroupSetOnce'); //return value of the confirmAndSaveCustGroupChange method boolean valueModifiedReturn = args.getReturnValue(); } } Points clés :\nargs.getThis() récupère l’instance de l’objet (ici la ligne SalesTable qui vient d’être insérée) args.getArg('isCustGroupSetOnce') récupère le paramètre de la méthode. args.getReturnValue() récupère la valeur de retour de la methode (à utiliser en cas de post event handler). Le handler doit être static et prendre un paramètre XppPrePostArgs Le nom de la méthode n’a pas d’importance fonctionnelle, mais la convention Table_Post_methode facilite la lecture 4. Ajouter une validation avec un Pre Event Handler Pour bloquer une opération avant qu’elle ne se produise (ex: empêcher la création d’une commande sans client actif) :\n[PreHandlerFor(tableStr(SalesTable), tableMethodStr(SalesTable, insert))] public static void SalesTable_Pre_insert(XppPrePostArgs args) { SalesTable salesTable = args.getThis(); CustTable custTable = CustTable::find(salesTable.CustAccount); if (custTable.Blocked != CustVendorBlocked::No) { throw error(strFmt(\"Le compte client %1 est bloqué.\", salesTable.CustAccount)); } } 5. Compiler et tester Compile le projet (Build ou Rebuild) Teste en créant une commande de vente manuellement. Pièges courants Event handlers multiples sur le même événement : l’ordre d’exécution entre extensions de différents modèles n’est pas garanti, évite les dépendances d’ordre Pour aller plus loin Documentation Microsoft : Event Handeler Prochain article : “Chain of Command en X++ : quand l’utiliser plutôt qu’un Event Handler” ",
+  "wordCount" : "471",
+  "inLanguage": "fr",
+  "datePublished": "2026-07-22T00:00:00Z",
+  "dateModified": "2026-07-22T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Mehdi MOALLA"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "D365 F\u0026O Tech Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/fr/" accesskey="h" title="D365 F&amp;O Tech Blog (Alt + H)">D365 F&amp;O Tech Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button><span class="nav-sep">|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://localhost:1313/" title="English"
+                                aria-label="English">En</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/fr/posts/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/fr/categories/" title="Catégories">
+                    <span>Catégories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/fr/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/fr/about/" title="À propos">
+                    <span>À propos</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/fr/">Accueil</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/fr/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&amp;O
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-22 00:00:00 +0000 UTC'>22 juillet 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>Mehdi MOALLA</span>&nbsp;|&nbsp;<span>Traductions:</span>
+    <ul class="i18n_list">
+        <li>
+            <a href="http://localhost:1313/posts/creer-event-handler-xpp-d365-fo/">En</a>
+        </li>
+    </ul>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table des matières</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#contexte" aria-label="Contexte">Contexte</a></li>
+            <li>
+                <a href="#pr%c3%a9requis" aria-label="Prérequis">Prérequis</a></li>
+            <li>
+                <a href="#%c3%a9tapes" aria-label="Étapes">Étapes</a><ul>
+                    
+            <li>
+                <a href="#1-cr%c3%a9er-le-projet-et-la-classe-dextension" aria-label="1. Créer le projet et la classe d&rsquo;extension">1. Créer le projet et la classe d&rsquo;extension</a></li>
+            <li>
+                <a href="#2-identifier-l%c3%a9v%c3%a9nement-%c3%a0-intercepter" aria-label="2. Identifier l&rsquo;événement à intercepter">2. Identifier l&rsquo;événement à intercepter</a></li>
+            <li>
+                <a href="#3-%c3%a9crire-le-post-event-handler" aria-label="3. Écrire le Post Event Handler">3. Écrire le Post Event Handler</a></li>
+            <li>
+                <a href="#4-ajouter-une-validation-avec-un-pre-event-handler" aria-label="4. Ajouter une validation avec un Pre Event Handler">4. Ajouter une validation avec un Pre Event Handler</a></li>
+            <li>
+                <a href="#5-compiler-et-tester" aria-label="5. Compiler et tester">5. Compiler et tester</a></li></ul>
+            </li>
+            <li>
+                <a href="#pi%c3%a8ges-courants" aria-label="Pièges courants">Pièges courants</a></li>
+            <li>
+                <a href="#pour-aller-plus-loin" aria-label="Pour aller plus loin">Pour aller plus loin</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h2 id="contexte">Contexte<a hidden class="anchor" aria-hidden="true" href="#contexte">#</a></h2>
+<p>Dans Dynamics 365 Finance &amp; Operations, il est interdit de modifier directement le code standard Microsoft (le modèle &ldquo;over-layering&rdquo; a disparu depuis AX 2012). Toute personnalisation doit passer par des <strong>extensions</strong>.</p>
+<p>Deux mécanismes principaux existent pour intervenir sur du code existant :</p>
+<ul>
+<li><strong>Chain of Command (CoC)</strong> : pour étendre le comportement d&rsquo;une méthode existante (avant/après/autour de son exécution)</li>
+<li><strong>Event Handlers</strong> : pour réagir à des événements précis (<code>Created</code>, <code>Updated</code>, <code>Deleted</code>, <code>ValidateWrite</code>&hellip;) sans modifier la logique elle-même</li>
+</ul>
+<p>Ce tuto se concentre sur les <strong>Event Handlers</strong>, souvent le choix le plus simple et le plus sûr pour des besoins comme : déclencher une notification, écrire un log, valider une règle métier additionnelle, ou synchroniser une donnée vers un système externe.</p>
+<h2 id="prérequis">Prérequis<a hidden class="anchor" aria-hidden="true" href="#prérequis">#</a></h2>
+<ul>
+<li>Dynamics 365 F&amp;O version 10.0.x (Tier 1 dev box ou cloud-hosted environment ou UDE)</li>
+<li>Visual Studio.</li>
+<li>Droits d&rsquo;écriture sur le modèle et accès au Application Explorer</li>
+</ul>
+<h2 id="étapes">Étapes<a hidden class="anchor" aria-hidden="true" href="#étapes">#</a></h2>
+<h3 id="1-créer-le-projet-et-la-classe-dextension">1. Créer le projet et la classe d&rsquo;extension<a hidden class="anchor" aria-hidden="true" href="#1-créer-le-projet-et-la-classe-dextension">#</a></h3>
+<p>Dans Visual Studio, crée un nouveau projet D365 F&amp;O, puis ajoute une classe d&rsquo;événement :</p>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">public class CustTableHandler
+{
+}
+</code></pre><h3 id="2-identifier-lévénement-à-intercepter">2. Identifier l&rsquo;événement à intercepter<a hidden class="anchor" aria-hidden="true" href="#2-identifier-lévénement-à-intercepter">#</a></h3>
+<p>Ouvre la table <code>CustTable</code> dans l&rsquo;Application Explorer et repère la méthode <code>confirmAndSaveCustGroupChange()</code>. On veut ici exécuter une action <strong>après</strong> la création d&rsquo;une commande de vente.</p>
+<img src="/images/eventHandler/SalesTable.png" alt="Sales table object" />
+<img src="/images/eventHandler/SalesCopyEvent.png" alt="select method for event handler" />
+<p>Deux options d&rsquo;événements existent pour la plupart des méthodes standard :</p>
+<ul>
+<li><code>[PostHandlerFor]</code> — s&rsquo;exécute après la méthode originale</li>
+<li><code>[PreHandlerFor]</code> — s&rsquo;exécute avant la méthode originale</li>
+</ul>
+<h3 id="3-écrire-le-post-event-handler">3. Écrire le Post Event Handler<a hidden class="anchor" aria-hidden="true" href="#3-écrire-le-post-event-handler">#</a></h3>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">class CustTableHandler
+{
+    [PreHandlerFor(tableStr(CustTable), tableStaticMethodStr(CustTable, confirmAndSaveCustGroupChange))]
+    public static void CustTable_Post_confirmAndSaveCustGroupChange(XppPrePostArgs args)
+    {
+        //Object instance of the CustTable table
+        CustTable custTable = args.getThis();
+        //parameter value in confirmAndSaveCustGroupChange method
+        boolean isCustGroupSetOnce = args.getArg(&#39;isCustGroupSetOnce&#39;);
+        //return value of the confirmAndSaveCustGroupChange method
+        boolean valueModifiedReturn = args.getReturnValue();
+    }
+}
+</code></pre><p><strong>Points clés :</strong></p>
+<ul>
+<li><code>args.getThis()</code> récupère l&rsquo;instance de l&rsquo;objet (ici la ligne <code>SalesTable</code> qui vient d&rsquo;être insérée)</li>
+<li><code>args.getArg('isCustGroupSetOnce')</code> récupère le paramètre de la méthode.</li>
+<li><code>args.getReturnValue()</code> récupère la valeur de retour de la methode (à utiliser en cas de post event handler).</li>
+<li>Le handler doit être <code>static</code> et prendre un paramètre <code>XppPrePostArgs</code></li>
+<li>Le nom de la méthode n&rsquo;a pas d&rsquo;importance fonctionnelle, mais la convention <code>Table_Post_methode</code> facilite la lecture</li>
+</ul>
+<h3 id="4-ajouter-une-validation-avec-un-pre-event-handler">4. Ajouter une validation avec un Pre Event Handler<a hidden class="anchor" aria-hidden="true" href="#4-ajouter-une-validation-avec-un-pre-event-handler">#</a></h3>
+<p>Pour bloquer une opération avant qu&rsquo;elle ne se produise (ex: empêcher la création d&rsquo;une commande sans client actif) :</p>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[PreHandlerFor(tableStr(SalesTable), tableMethodStr(SalesTable, insert))]
+public static void SalesTable_Pre_insert(XppPrePostArgs args)
+{
+    SalesTable salesTable = args.getThis();
+    CustTable custTable = CustTable::find(salesTable.CustAccount);
+
+    if (custTable.Blocked != CustVendorBlocked::No)
+    {
+        throw error(strFmt(&#34;Le compte client %1 est bloqué.&#34;, salesTable.CustAccount));
+    }
+}
+</code></pre><h3 id="5-compiler-et-tester">5. Compiler et tester<a hidden class="anchor" aria-hidden="true" href="#5-compiler-et-tester">#</a></h3>
+<ul>
+<li>Compile le projet (Build ou Rebuild)</li>
+<li>Teste en créant une commande de vente manuellement.</li>
+</ul>
+<h2 id="pièges-courants">Pièges courants<a hidden class="anchor" aria-hidden="true" href="#pièges-courants">#</a></h2>
+<ul>
+<li><strong>Event handlers multiples sur le même événement</strong> : l&rsquo;ordre d&rsquo;exécution entre extensions de différents modèles n&rsquo;est pas garanti, évite les dépendances d&rsquo;ordre</li>
+</ul>
+<h2 id="pour-aller-plus-loin">Pour aller plus loin<a hidden class="anchor" aria-hidden="true" href="#pour-aller-plus-loin">#</a></h2>
+<ul>
+<li>Documentation Microsoft : <a href="https://learn.microsoft.com/fr-fr/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-events" target="_blank">Event Handeler</a></li>
+<li>Prochain article : &ldquo;Chain of Command en X++ : quand l&rsquo;utiliser plutôt qu&rsquo;un Event Handler&rdquo;</li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/fr/tags/x&#43;&#43;/">X&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/fr/tags/event-handler/">Event Handler</a></li>
+      <li><a href="http://localhost:1313/fr/tags/extensions/">Extensions</a></li>
+      <li><a href="http://localhost:1313/fr/tags/chain-of-command/">Chain of Command</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/fr/">D365 F&amp;O Tech Blog</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Copier';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Copié !';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Copier';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

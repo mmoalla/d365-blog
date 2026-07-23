@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on D365 F&amp;O Tech Blog</title>
+    <link>http://localhost:1313/fr/posts/</link>
+    <description>Recent content in Posts on D365 F&amp;O Tech Blog</description>
+    <generator>Hugo</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 22 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/fr/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&amp;O</title>
+      <link>http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/</link>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/fr/posts/creer-event-handler-xpp-d365-fo/</guid>
+      <description>Comment intercepter proprement un événement standard dans D365 F&amp;amp;O sans toucher au code natif, avec un exemple concret sur la table SalesTable.</description>
+    </item>
+  </channel>
+</rss>
