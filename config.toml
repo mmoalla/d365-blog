@@ -12,7 +12,7 @@ buildExpired = false
 [params]
   env = "production"
   keywords = ["Dynamics 365", "F&O", "X++", "Power Platform", "Power Automate", "Azure", "Microsoft"]
-  author = "Ton Nom"
+  author = "Mehdi Moalla"
   DateFormat = "2 January 2006"
   defaultTheme = "auto"
   ShowReadingTime = true
@@ -36,7 +36,7 @@ buildExpired = false
   lineNos = true
   codeFences = true
 
-  [languages]
+[languages]
   [languages.fr]
     label = "Français"
     locale = "fr-FR"
