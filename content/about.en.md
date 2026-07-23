@@ -6,7 +6,7 @@ ShowToc: false
 ShowShareButtons: false
 ---
 
-<img src="/images/profile.jpg" alt="Profile picture" width="150" style="border-radius: 50%;" />
+{{< img src="images/profile.jpg" alt="Photo de profil" width="150" style="border-radius: 50%;" >}}
 
 I am a freelance technical architect for **Dynamics 365 Finance & Operations**, and this blog gathers my technical notes, tutorials, and experience reports on the Microsoft ecosystem:
 
