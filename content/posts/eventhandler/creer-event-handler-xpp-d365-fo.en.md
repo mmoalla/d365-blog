@@ -2,6 +2,7 @@
 title: "Create an Event Handler in X++ for Dynamics 365 F&O"
 date: 2026-07-22
 draft: false
+weight: 2
 categories: ["X++ & Dev"]
 tags: ["X++", "Event Handler", "Extensions", "Chain of Command"]
 summary: "How to properly intercept a standard event in D365 F&O without changing standard code, with a concrete example on the SalesTable."

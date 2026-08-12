@@ -4,9 +4,13 @@ layout: "single"
 hidemeta: true
 ShowToc: false
 ShowShareButtons: false
+comments: false
 ---
 
-{{< img src="images/profile.jpg" alt="Photo de profil" width="150" style="border-radius: 50%;" >}} 
+<div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
+  {{< img src="images/profile.jpg" alt="Photo de profil" width="200" style="border-radius: 50%;" >}}
+  {{< img src="images/maltprofile.png" alt="Photo de profil" width="250" style="border-radius: 50%;" >}}
+</div>
 
 Je suis architecte technique freelance sur **Dynamics 365 Finance & Operations**, et ce blog rassemble mes notes techniques, tutoriels et retours d'expérience sur l'écosystème Microsoft :
 

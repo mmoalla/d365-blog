@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dataverse on D365 F&amp;O Tech Blog</title>
+    <link>http://localhost:1313/d365-blog/tags/dataverse/</link>
+    <description>Recent content in Dataverse on D365 F&amp;O Tech Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 12 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/d365-blog/tags/dataverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create and configure Unified Development Environment</title>
+      <link>http://localhost:1313/d365-blog/posts/ude/configure-ude-environment/</link>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/d365-blog/posts/ude/configure-ude-environment/</guid>
+      <description>Microsoft is gradually replacing Cloud Hosted Environments (CHE) managed through LCS with UDE, a development environment natively connected to the Power Platform. Here&amp;rsquo;s how to set it up.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+{{- /* Comments area start */ -}}
+{{- $lang := "en" -}}
+{{- if eq site.Language.Lang "fr" -}}
+  {{- $lang = "fr" -}}
+{{- end -}}
+ 
+<script src="https://giscus.app/client.js"
+        data-repo="mmoalla/d365-blog"
+        data-repo-id="R_kgDOThjHNw"
+        data-category="General"
+        data-category-id="DIC_kwDOThjHN84DDP-I"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="{{ $lang }}"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
+<script>
+    function setGiscusTheme(theme) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } },
+            'https://giscus.app'
+        );
+    }
+ 
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        setTimeout(() => {
+            const isDark = document.querySelector("html").dataset.theme === "dark";
+            setGiscusTheme(isDark ? "dark" : "light");
+        }, 50);
+    });
+</script>
+{{- /* Comments area end */ -}}
