@@ -6,8 +6,15 @@
     <description>Recent content in Chain of Command on D365 F&amp;O Tech Blog</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Wed, 22 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/d365-blog/fr/tags/chain-of-command/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet</title>
+      <link>http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/</link>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/</guid>
+      <description>La Chaîne de commande n&amp;rsquo;est pas réservée aux classes et tables : les formulaires, sources de données, champs, contrôles et entités de données ont chacun leur propre syntaxe d&amp;rsquo;extension. Voici un tour complet, avec un exemple pour chaque cas.</description>
+    </item>
     <item>
       <title>Créer un Event Handler en X&#43;&#43; dans Dynamics 365 F&amp;O</title>
       <link>http://localhost:1313/d365-blog/fr/posts/eventhandler/creer-event-handler-xpp-d365-fo/</link>
