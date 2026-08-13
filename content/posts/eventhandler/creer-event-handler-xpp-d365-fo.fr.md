@@ -87,4 +87,3 @@ public static void SalesTable_Pre_insert(XppPrePostArgs args)
 
 ## Pour aller plus loin
 - Documentation Microsoft : <a href="https://learn.microsoft.com/fr-fr/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-events" target="_blank">Event Handeler</a> 
-- Prochain article : "Chain of Command en X++ : quand l'utiliser plutôt qu'un Event Handler"

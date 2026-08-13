@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr" dir="auto" data-theme="auto">
+
+<head><script src="/d365-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=d365-blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet | D365 F&amp;O Tech Blog</title>
+<meta name="keywords" content="X&#43;&#43;, Chain of Command, Extensions">
+<meta name="description" content="La Chaîne de commande n&rsquo;est pas réservée aux classes et tables : les formulaires, sources de données, champs, contrôles et entités de données ont chacun leur propre syntaxe d&rsquo;extension. Voici un tour complet, avec un exemple pour chaque cas.">
+<meta name="author" content="Mehdi Moalla">
+<link rel="canonical" href="http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/">
+<link crossorigin="anonymous" href="/d365-blog/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/d365-blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/d365-blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/d365-blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/d365-blog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/d365-blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="fr" href="http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/d365-blog/posts/coc/chain-of-command/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/">
+  <meta property="og:site_name" content="D365 F&O Tech Blog">
+  <meta property="og:title" content="Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet">
+  <meta property="og:description" content="La Chaîne de commande n’est pas réservée aux classes et tables : les formulaires, sources de données, champs, contrôles et entités de données ont chacun leur propre syntaxe d’extension. Voici un tour complet, avec un exemple pour chaque cas.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-08-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-13T00:00:00+00:00">
+    <meta property="article:tag" content="X&#43;&#43;">
+    <meta property="article:tag" content="Chain of Command">
+    <meta property="article:tag" content="Extensions">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet">
+  <meta name="twitter:description" content="La Chaîne de commande n’est pas réservée aux classes et tables : les formulaires, sources de données, champs, contrôles et entités de données ont chacun leur propre syntaxe d’extension. Voici un tour complet, avec un exemple pour chaque cas.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/d365-blog/fr/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet",
+      "item": "http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet",
+  "name": "Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet",
+  "description": "La Chaîne de commande n\u0026rsquo;est pas réservée aux classes et tables : les formulaires, sources de données, champs, contrôles et entités de données ont chacun leur propre syntaxe d\u0026rsquo;extension. Voici un tour complet, avec un exemple pour chaque cas.",
+  "keywords": [
+    "X++", "Chain of Command", "Extensions"
+  ],
+  "articleBody": "Contexte La Chaîne de commande (Chain of Command ou CoC), aux côtés des Event Handlers, est l’un des deux principaux mécanismes d’extensibilité dans Dynamics 365 F\u0026O. Contrairement aux Event Handlers, la CoC vous permet de modifier le comportement d’une méthode existante : altérer sa valeur de retour, transformer ses paramètres, ou même bloquer son exécution entièrement.\nLa syntaxe repose sur trois éléments :\nUne classe final, marquée avec l’attribut [ExtensionOf(...)] qui indique quel objet elle étend. Une méthode qui reproduit exactement la signature de la méthode originale (même nom, mêmes paramètres, même type de retour). Le mot-clé next, qui appelle la méthode originale (ou l’extension précédente dans la chaîne) — l’équivalent de base() en C# [ExtensionOf(classStr(SalesFormLetter))]\rfinal class MonEntreprise_SalesFormLetter_Extension\r{\rpublic void update(SalesFormLetter_Invoice _formLetter)\r{\r// Logique avant l'exécution originale\rnext update(_formLetter);\r// Logique après l'exécution originale\r}\r} Ce qui n’est pas souvent couvert, c’est que chaque type d’objet X++ a sa propre fonction de ciblage à l’intérieur de l’attribut [ExtensionOf(...)]. Utiliser la mauvaise fonction pour le mauvais objet est l’erreur la plus courante lors de la découverte de la CoC sur les formulaires — la compilation échoue souvent sans un message très clair sur la cause réelle.\nVoici la fonction à utiliser pour chacun des sept points d’extension les plus courants :\nObjet à étendre Fonction de ciblage Classe classStr(ClassName) Table tableStr(TableName) Formulaire (méthodes sur le formulaire lui-même) formStr(FormName) Source de données du formulaire formDataSourceStr(FormName, DataSourceName) Champ de données sur un formulaire formDataFieldStr(FormName, DataSourceName, FieldName) Contrôle de formulaire formControlStr(FormName, ControlName) Entité de données tableStr(DataEntityName) (une entité de données est techniquement une table) Prérequis Dynamics 365 F\u0026O version 10.0.x. Visual Studio avec les outils de développement D365 F\u0026O. Un modèle personnalisé existant. Être familiarisé avec les bases de la Chaîne de commande (recommandé). 1. Étendre une classe Le principe est celui que nous venons de voir dans l’introduction. Un autre exemple courant : intercepter un calcul de montant dans une classe métier standard.\n[ExtensionOf(classStr(CustPaymSchedRule))]\rfinal class PrefixCompanyCustPaymSchedRule_Extension\r{\rpublic AmountMST calcPaymAmount(AmountMST _amount, int _numberOfPayments)\r{\rAmountMST amount = next calcPaymAmount(_amount, _numberOfPayments);\rif (this.RoundUp)\r{\ramount = PrefixCompanyRoundingHelper::roundUp(amount);\r}\rreturn amount;\r}\r} 2. Étendre une table [ExtensionOf(tableStr(CustTable))]\rfinal class CustTable_Prefix_T_Extension\r{\rvoid initValue()\r{\rnext initValue();\r//définir votre code personnalisé\r}\r} 3. Étendre un formulaire Ici, nous ciblons le formulaire lui-même — utile pour accrocher ses méthodes globales comme init() :\n[ExtensionOf(formStr(CustTable))]\rfinal class CustTable_Prefix_F_Extension\r{\rpublic void init()\r{\rnext init();\r//votre code de personnalisation va ici\r}\r} 4. Étendre une source de données du formulaire Chaque FormDataSource (le lien entre un formulaire et une table) peut être étendu indépendamment — utile pour accrocher le chargement des enregistrements, la validation, ou l’activation :\n[ExtensionOf(formDataSourceStr(CustTable, CustTable))]\rfinal class CustTable_Prefix_DS_Extension\r{\rpublic int active()\r{\rint ret;\rret = next active();\rCustTable custTableLocal = this.cursor();\r//En fonction de l'enregistrement actuellement sélectionné,\r//activez/désactivez ou affichez/masquez votre bouton ou contrôle ici.\rreturn ret;\r}\r} Remarque importante : le paramètre FormDataSourceName dans formDataSourceStr(FormName, FormDataSourceName) fait référence au nom de la source de données dans l’arborescence du concepteur du formulaire, pas nécessairement au nom de la table sous-jacente — les deux sont souvent identiques, mais pas toujours (une source de données peut être renommée dans le concepteur).\n5. Étendre un champ de données sur un formulaire [ExtensionOf(formDataFieldStr(CustTable, CustTable, CustGroup)]\rfinal class CustTable_Prefix_DF_Extension\r{\rpublic void modified()\r{\rFormDataObject formDataObject = any2Object(this) as FormDataObject;\rFormDataSource formDataSource = formDataObject.datasource();\rCustTable custTable;\rnext modified();\rcustTable = formDataSource.cursor();\rcustTable.CustGroup = CustGroup::find(custTable.CustGroup).CustGroup;\r}\r} 6. Étendre un contrôle de formulaire [ExtensionOf(formControlStr(CustTable, ButtonDelete))]\rfinal class CustTable_Prefix_FC_Extension\r{\rpublic void clicked()\r{\rFormControl formButtonControl = any2Object(this) as FormControl;\rFormDataSource formDatasource = formButtonControl.formRun().dataSource(tableStr(CustTable));\rCustTable custTable = formDatasource.cursor();\rnext clicked();\rinfo(strFmt(\"Cust Account %1\", custTable.AccountNum));\r}\r} 7. Étendre une entité de données [ExtensionOf(tableStr(CustomersV3Entity))]\rfinal class CustomersV3Entity_Prefix_Entity_Extension\r{\rpublic boolean validateWrite()\r{\rboolean ret = next validateWrite();\r//Code personnalisé\rif(CustTable.CustGroup != 'Group1')\r{\rret = checkFailed(\"message\");\r}\rreturn ret;\r}\r} C’est particulièrement utile pour ajouter une logique de validation ou de transformation lors des importations de données via le Data Management Framework, sans toucher à la définition standard de l’entité.\nPièges courants Oublier que le nom de la source de données peut différer du nom de la table : vérifiez toujours le nom exact affiché dans l’arborescence du concepteur du formulaire, pas seulement le nom de la table. Ne pas gérer le cas où next n’est jamais appelé sur un contrôle : comme dans l’exemple du bouton “Supprimer”, c’est intentionnel et légitime, mais assurez-vous que c’est réellement voulu et non une omission — autrement, cliquer sur un bouton standard peut sembler “ne rien faire” sans un message d’erreur clair pour l’utilisateur. Étendre une entité de données en pensant qu’elle se comporte différemment d’une table : ce n’est pas le cas — elle suit exactement les mêmes règles de CoC qu’une table standard. Lectures complémentaires Documentation Microsoft Learn : method wrapping et Chain of Command ",
+  "wordCount" : "814",
+  "inLanguage": "fr",
+  "datePublished": "2026-08-13T00:00:00Z",
+  "dateModified": "2026-08-13T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Mehdi Moalla"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/d365-blog/fr/posts/coc/chain-of-command/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "D365 F\u0026O Tech Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/d365-blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/d365-blog/fr/" accesskey="h" title="D365 F&amp;O Tech Blog (Alt + H)">D365 F&amp;O Tech Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button><span class="nav-sep">|</span>
+                    <ul class="lang-menu">
+                        <li>
+                            <a href="http://localhost:1313/d365-blog/" title="English"
+                                aria-label="English">En</a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="http://localhost:1313/d365-blog/fr/posts/" title="Articles">
+                    <span>Articles</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/d365-blog/fr/categories/" title="Catégories">
+                    <span>Catégories</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/d365-blog/fr/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/d365-blog/fr/about/" title="À propos">
+                    <span>À propos</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+            <a href="/d365-blog/fr/">Accueil</a>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <a href="/d365-blog/fr/posts/">Posts</a>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+</nav>
+    <h1 class="post-title entry-hint-parent">
+      Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-08-13 00:00:00 +0000 UTC'>13 août 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Mehdi Moalla</span>&nbsp;|&nbsp;<span>Traductions:</span>
+    <ul class="i18n_list">
+        <li>
+            <a href="http://localhost:1313/d365-blog/posts/coc/chain-of-command/">En</a>
+        </li>
+    </ul>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table des matières</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#contexte" aria-label="Contexte">Contexte</a></li>
+            <li>
+                <a href="#pr%c3%a9requis" aria-label="Prérequis">Prérequis</a></li>
+            <li>
+                <a href="#1-%c3%a9tendre-une-classe" aria-label="1. Étendre une classe">1. Étendre une classe</a></li>
+            <li>
+                <a href="#2-%c3%a9tendre-une-table" aria-label="2. Étendre une table">2. Étendre une table</a></li>
+            <li>
+                <a href="#3-%c3%a9tendre-un-formulaire" aria-label="3. Étendre un formulaire">3. Étendre un formulaire</a></li>
+            <li>
+                <a href="#4-%c3%a9tendre-une-source-de-donn%c3%a9es-du-formulaire" aria-label="4. Étendre une source de données du formulaire">4. Étendre une source de données du formulaire</a></li>
+            <li>
+                <a href="#5-%c3%a9tendre-un-champ-de-donn%c3%a9es-sur-un-formulaire" aria-label="5. Étendre un champ de données sur un formulaire">5. Étendre un champ de données sur un formulaire</a></li>
+            <li>
+                <a href="#6-%c3%a9tendre-un-contr%c3%b4le-de-formulaire" aria-label="6. Étendre un contrôle de formulaire">6. Étendre un contrôle de formulaire</a></li>
+            <li>
+                <a href="#7-%c3%a9tendre-une-entit%c3%a9-de-donn%c3%a9es" aria-label="7. Étendre une entité de données">7. Étendre une entité de données</a></li>
+            <li>
+                <a href="#pi%c3%a8ges-courants" aria-label="Pièges courants">Pièges courants</a></li>
+            <li>
+                <a href="#lectures-compl%c3%a9mentaires" aria-label="Lectures complémentaires">Lectures complémentaires</a>
+            </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h2 id="contexte">Contexte<a hidden class="anchor" aria-hidden="true" href="#contexte">#</a></h2>
+<p><strong>La Chaîne de commande (Chain of Command ou CoC)</strong>, aux côtés des Event Handlers, est l&rsquo;un des deux principaux mécanismes d&rsquo;extensibilité dans Dynamics 365 F&amp;O. Contrairement aux Event Handlers, la CoC vous permet de <strong>modifier le comportement</strong> d&rsquo;une méthode existante : altérer sa valeur de retour, transformer ses paramètres, ou même bloquer son exécution entièrement.</p>
+<p>La syntaxe repose sur trois éléments :</p>
+<ul>
+<li>Une classe <code>final</code>, marquée avec l&rsquo;attribut <code>[ExtensionOf(...)]</code> qui indique quel objet elle étend.</li>
+<li>Une méthode qui reproduit <strong>exactement</strong> la signature de la méthode originale (même nom, mêmes paramètres, même type de retour).</li>
+<li>Le mot-clé <code>next</code>, qui appelle la méthode originale (ou l&rsquo;extension précédente dans la chaîne) — l&rsquo;équivalent de <code>base()</code> en C#</li>
+</ul>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(classStr(SalesFormLetter))]
+final class MonEntreprise_SalesFormLetter_Extension
+{
+    public void update(SalesFormLetter_Invoice _formLetter)
+    {
+        // Logique avant l&#39;exécution originale
+        next update(_formLetter);
+        // Logique après l&#39;exécution originale
+    }
+}
+</code></pre><p>Ce qui n&rsquo;est pas souvent couvert, c&rsquo;est que <strong>chaque type d&rsquo;objet X++ a sa propre fonction de ciblage</strong> à l&rsquo;intérieur de l&rsquo;attribut <code>[ExtensionOf(...)]</code>. Utiliser la mauvaise fonction pour le mauvais objet est l&rsquo;erreur la plus courante lors de la découverte de la CoC sur les formulaires — la compilation échoue souvent sans un message très clair sur la cause réelle.</p>
+<p>Voici la fonction à utiliser pour chacun des sept points d&rsquo;extension les plus courants :</p>
+<table>
+	<thead>
+			<tr>
+					<th>Objet à étendre</th>
+					<th>Fonction de ciblage</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Classe</td>
+					<td><code>classStr(ClassName)</code></td>
+			</tr>
+			<tr>
+					<td>Table</td>
+					<td><code>tableStr(TableName)</code></td>
+			</tr>
+			<tr>
+					<td>Formulaire (méthodes sur le formulaire lui-même)</td>
+					<td><code>formStr(FormName)</code></td>
+			</tr>
+			<tr>
+					<td>Source de données du formulaire</td>
+					<td><code>formDataSourceStr(FormName, DataSourceName)</code></td>
+			</tr>
+			<tr>
+					<td>Champ de données sur un formulaire</td>
+					<td><code>formDataFieldStr(FormName, DataSourceName, FieldName)</code></td>
+			</tr>
+			<tr>
+					<td>Contrôle de formulaire</td>
+					<td><code>formControlStr(FormName, ControlName)</code></td>
+			</tr>
+			<tr>
+					<td>Entité de données</td>
+					<td><code>tableStr(DataEntityName)</code> (une entité de données est techniquement une table)</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="prérequis">Prérequis<a hidden class="anchor" aria-hidden="true" href="#prérequis">#</a></h2>
+<ul>
+<li>Dynamics 365 F&amp;O version 10.0.x.</li>
+<li>Visual Studio avec les outils de développement D365 F&amp;O.</li>
+<li>Un modèle personnalisé existant.</li>
+<li>Être familiarisé avec les bases de la Chaîne de commande (recommandé).</li>
+</ul>
+<h2 id="1-étendre-une-classe">1. Étendre une classe<a hidden class="anchor" aria-hidden="true" href="#1-étendre-une-classe">#</a></h2>
+<p>Le principe est celui que nous venons de voir dans l&rsquo;introduction. Un autre exemple courant : intercepter un calcul de montant dans une classe métier standard.</p>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(classStr(CustPaymSchedRule))]
+final class PrefixCompanyCustPaymSchedRule_Extension
+{
+    public AmountMST calcPaymAmount(AmountMST _amount, int _numberOfPayments)
+    {
+        AmountMST amount = next calcPaymAmount(_amount, _numberOfPayments);
+
+        if (this.RoundUp)
+        {
+            amount = PrefixCompanyRoundingHelper::roundUp(amount);
+        }
+
+        return amount;
+    }
+}
+</code></pre><h2 id="2-étendre-une-table">2. Étendre une table<a hidden class="anchor" aria-hidden="true" href="#2-étendre-une-table">#</a></h2>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(tableStr(CustTable))]
+final class CustTable_Prefix_T_Extension
+{
+    void initValue()
+    {
+        next initValue();
+
+        //définir votre code personnalisé
+    }
+}
+</code></pre><h2 id="3-étendre-un-formulaire">3. Étendre un formulaire<a hidden class="anchor" aria-hidden="true" href="#3-étendre-un-formulaire">#</a></h2>
+<p>Ici, nous ciblons le formulaire lui-même — utile pour accrocher ses méthodes globales comme <code>init()</code> :</p>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(formStr(CustTable))]
+final class CustTable_Prefix_F_Extension
+{
+    public void init()
+    {
+        next init();
+
+        //votre code de personnalisation va ici
+    }
+}
+</code></pre><h2 id="4-étendre-une-source-de-données-du-formulaire">4. Étendre une source de données du formulaire<a hidden class="anchor" aria-hidden="true" href="#4-étendre-une-source-de-données-du-formulaire">#</a></h2>
+<p>Chaque <code>FormDataSource</code> (le lien entre un formulaire et une table) peut être étendu indépendamment — utile pour accrocher le chargement des enregistrements, la validation, ou l&rsquo;activation :</p>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(formDataSourceStr(CustTable, CustTable))]
+final class CustTable_Prefix_DS_Extension
+{
+    public int active()
+    {
+        int ret;
+        ret = next active();
+
+        CustTable custTableLocal = this.cursor();
+
+        //En fonction de l&#39;enregistrement actuellement sélectionné,
+        //activez/désactivez ou affichez/masquez votre bouton ou contrôle ici.
+
+        return ret;
+    }
+}
+</code></pre><p><strong>Remarque importante :</strong> le paramètre <code>FormDataSourceName</code> dans <code>formDataSourceStr(FormName, FormDataSourceName)</code> fait référence au <strong>nom de la source de données dans l&rsquo;arborescence du concepteur du formulaire</strong>, pas nécessairement au nom de la table sous-jacente — les deux sont souvent identiques, mais pas toujours (une source de données peut être renommée dans le concepteur).</p>
+<h2 id="5-étendre-un-champ-de-données-sur-un-formulaire">5. Étendre un champ de données sur un formulaire<a hidden class="anchor" aria-hidden="true" href="#5-étendre-un-champ-de-données-sur-un-formulaire">#</a></h2>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(formDataFieldStr(CustTable, CustTable, CustGroup)]
+final class CustTable_Prefix_DF_Extension
+{
+    public void modified()
+    {
+        FormDataObject formDataObject = any2Object(this) as FormDataObject;
+        FormDataSource formDataSource = formDataObject.datasource();
+        CustTable custTable;
+
+        next modified();
+
+        custTable = formDataSource.cursor();
+        custTable.CustGroup = CustGroup::find(custTable.CustGroup).CustGroup;
+
+    }
+}
+</code></pre><h2 id="6-étendre-un-contrôle-de-formulaire">6. Étendre un contrôle de formulaire<a hidden class="anchor" aria-hidden="true" href="#6-étendre-un-contrôle-de-formulaire">#</a></h2>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(formControlStr(CustTable, ButtonDelete))]
+final class CustTable_Prefix_FC_Extension
+{
+    public void clicked()
+    {
+        FormControl formButtonControl = any2Object(this) as FormControl;
+        FormDataSource formDatasource = formButtonControl.formRun().dataSource(tableStr(CustTable));
+        CustTable custTable = formDatasource.cursor();
+
+        next clicked();
+
+        info(strFmt(&#34;Cust Account %1&#34;, custTable.AccountNum));
+    }
+}
+</code></pre><h2 id="7-étendre-une-entité-de-données">7. Étendre une entité de données<a hidden class="anchor" aria-hidden="true" href="#7-étendre-une-entité-de-données">#</a></h2>
+<pre tabindex="0"><code class="language-xpp" data-lang="xpp">[ExtensionOf(tableStr(CustomersV3Entity))]
+final class CustomersV3Entity_Prefix_Entity_Extension
+{
+    public boolean validateWrite()
+    {
+        boolean ret = next validateWrite();
+
+        //Code personnalisé
+        if(CustTable.CustGroup != &#39;Group1&#39;)
+        {
+            ret = checkFailed(&#34;message&#34;);
+        }
+
+        return ret;
+    }
+}
+</code></pre><p>C&rsquo;est particulièrement utile pour ajouter une logique de validation ou de transformation lors des importations de données via le Data Management Framework, sans toucher à la définition standard de l&rsquo;entité.</p>
+<h2 id="pièges-courants">Pièges courants<a hidden class="anchor" aria-hidden="true" href="#pièges-courants">#</a></h2>
+<ul>
+<li><strong>Oublier que le nom de la source de données peut différer du nom de la table</strong> : vérifiez toujours le nom exact affiché dans l&rsquo;arborescence du concepteur du formulaire, pas seulement le nom de la table.</li>
+<li><strong>Ne pas gérer le cas où <code>next</code> n&rsquo;est jamais appelé sur un contrôle</strong> : comme dans l&rsquo;exemple du bouton &ldquo;Supprimer&rdquo;, c&rsquo;est intentionnel et légitime, mais assurez-vous que c&rsquo;est réellement voulu et non une omission — autrement, cliquer sur un bouton standard peut sembler &ldquo;ne rien faire&rdquo; sans un message d&rsquo;erreur clair pour l&rsquo;utilisateur.</li>
+<li><strong>Étendre une entité de données en pensant qu&rsquo;elle se comporte différemment d&rsquo;une table</strong> : ce n&rsquo;est pas le cas — elle suit exactement les mêmes règles de CoC qu&rsquo;une table standard.</li>
+</ul>
+<h2 id="lectures-complémentaires">Lectures complémentaires<a hidden class="anchor" aria-hidden="true" href="#lectures-complémentaires">#</a></h2>
+<ul>
+<li><a href="https://learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/extensibility/method-wrapping-coc">Documentation Microsoft Learn : method wrapping et Chain of Command</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/x&#43;&#43;/">X&#43;&#43;</a></li>
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/chain-of-command/">Chain of Command</a></li>
+      <li><a href="http://localhost:1313/d365-blog/fr/tags/extensions/">Extensions</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/d365-blog/fr/posts/ude/configure-ude-environment/">
+    <span class="title">« Précédent</span>
+    <span>Créer et configurer l&#39;Unified Development Environment</span>
+  </a>
+</nav>
+  </footer><script src="https://giscus.app/client.js"
+        data-repo="mmoalla/d365-blog"
+        data-repo-id="R_kgDOThjHNw"
+        data-category="General"
+        data-category-id="DIC_kwDOThjHN84DDP-I"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
+<script>
+    function setGiscusTheme(theme) {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } },
+            'https://giscus.app'
+        );
+    }
+ 
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        setTimeout(() => {
+            const isDark = document.querySelector("html").dataset.theme === "dark";
+            setGiscusTheme(isDark ? "dark" : "light");
+        }, 50);
+    });
+</script>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2026 <a href="http://localhost:1313/d365-blog/fr/">D365 F&amp;O Tech Blog</a></span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+ 
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+ 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Copier';
+ 
+        function copyingDone() {
+            copybutton.innerHTML = 'Copié !';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Copier';
+            }, 2000);
+        }
+ 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+ 
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script></body>
+
+</html>

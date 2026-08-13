@@ -6,7 +6,7 @@
     <description>Recent content in Extensions on D365 F&amp;O Tech Blog</description>
     <generator>Hugo</generator>
     <language>en-US</language>
-    <lastBuildDate>Wed, 22 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/d365-blog/tags/extensions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Create an Event Handler in X&#43;&#43; for Dynamics 365 F&amp;O</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/d365-blog/posts/eventhandler/creer-event-handler-xpp-d365-fo/</guid>
       <description>How to properly intercept a standard event in D365 F&amp;amp;O without changing standard code, with a concrete example on the SalesTable.</description>
+    </item>
+    <item>
+      <title>Chain of Command on Classes, Tables, Forms and Data Entities: the complete guide</title>
+      <link>http://localhost:1313/d365-blog/posts/coc/chain-of-command/</link>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/d365-blog/posts/coc/chain-of-command/</guid>
+      <description>Chain of Command isn&amp;rsquo;t just for classes and tables: forms, data sources, fields, controls, and data entities each have their own extension syntax. Here&amp;rsquo;s a complete tour, with one example for each case.</description>
     </item>
   </channel>
 </rss>

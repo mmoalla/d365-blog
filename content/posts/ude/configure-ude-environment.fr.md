@@ -74,4 +74,3 @@ Le processus est maintenant largement automatisé, et vous pouvez suivre la prog
 
 ## Lectures complémentaires
 - Documentation Microsoft : <a href="https://learn.microsoft.com/en-us/power-platform/developer/unified-experience/finance-operations-install-config-tools" target="_blank">Installer et configurer les outils de développement</a> 
-- Prochain article : "Comment déployer votre code sur l'environnement UDE"
