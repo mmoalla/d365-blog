@@ -1,6 +1,16 @@
-<img
-    src="{{ .Get "src" | relURL }}"
-    alt="{{ .Get "alt" }}"
-    {{ with .Get "width" }}width="{{ . }}"{{ end }}
-    {{ with .Get "style" }}style="{{ . }}"{{ end }}
-/>
+{{- $src := .Get "src" | relURL -}}
+{{- $alt := .Get "alt" -}}
+{{- $width := .Get "width" -}}
+{{- $style := .Get "style" -}}
+{{- $noLightbox := eq (.Get "lightbox") "false" -}}
+{{- if $noLightbox -}}
+<img src="{{ $src }}" alt="{{ $alt }}" {{ with $width }}width="{{ . }}"{{ end }} {{ with $style }}style="{{ . }}"{{ end }} />
+{{- else -}}
+{{- $id := .Get "src" | anchorize -}}
+<a href="#lightbox-{{ $id }}" class="lightbox-link">
+    <img src="{{ $src }}" alt="{{ $alt }}" {{ with $width }}width="{{ . }}"{{ end }} {{ with $style }}style="{{ . }}"{{ end }} />
+</a>
+<a href="#" id="lightbox-{{ $id }}" class="lightbox-overlay">
+    <img src="{{ $src }}" alt="{{ $alt }}">
+</a>
+{{- end -}}
