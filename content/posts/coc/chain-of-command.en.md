@@ -1,6 +1,6 @@
 ---
 title: "Chain of Command on Classes, Tables, Forms and Data Entities: the complete guide"
-date: 2026-08-13
+date: 2026-07-13
 draft: false
 categories: ["X++ & Dev"]
 tags: ["X++", "Chain of Command", "Extensions"]

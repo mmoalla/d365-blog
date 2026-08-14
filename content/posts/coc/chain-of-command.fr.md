@@ -1,6 +1,6 @@
 ---
 title: "Chaîne de commande sur les classes, tables, formulaires et entités de données : le guide complet"
-date: 2026-08-13
+date: 2026-07-13
 draft: false
 categories: ["X++ & Dev"]
 tags: ["X++", "Chain of Command", "Extensions"]
