@@ -77,7 +77,7 @@ This node show list of sales orders.
 6. Repeat the operation to add:
    - **Name**: `CustAccount`.
    - **Type**: String.
-7. Select **Save**.
+7. Click **Save**.
 8. Close the designer, then select **Change status** to move the configuration from **Draft** to **Completed**.
 {{< img src="images/ER/part1/image8.png" alt="chage status" >}}
 **Why go through "Change status"?** A configuration in "Draft" status is still being edited. It needs to move to at least "Completed" for it to become selectable as a source in the next steps (mapping and format).
