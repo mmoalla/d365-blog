@@ -67,18 +67,21 @@ Prenons un exemple concret et volontairement simple pour cette première partie 
 1. Sélectionne la configuration `Sales Order Model` fraîchement créée
 2. Clique sur **Concepteur**
 {{< img src="images/ER/image5.png" alt="select model designer" >}}
-3. Dans le designer, clique sur **Nouveau** pour ajouter le nœud racine :
-   - **Name** : `SalesOrder`
+3. Dans le designer, clique sur **Nouveau** pour ajouter un nœud racine :
+   - **Name** : `SalesOrderModel`
 {{< img src="images/ER/image6.png" alt="add root" >}}
-4. Sélectionne ce nœud racine, puis clique de nouveau sur **New** pour ajouter un premier champ enfant :
+4. Sélectionne ce nœud racine, puis clique de nouveau sur **New** pour ajouter un premier nœud enfant `SalesOrder` de type `Record List` :
+Ce nœud affiche la liste des commandes de vente
+{{< img src="images/ER/image9.png" alt="add root" >}}
+5. Sélectionne le nœud `SalesOrder`, puis clique de nouveau sur **New** pour ajouter un premier champ enfant :
    - **Name** : `SalesId`
    - **Type** : Chaine
 {{< img src="images/ER/image7.png" alt="add root" >}}
-5. Répète l'opération pour ajouter :
+6. Répète l'opération pour ajouter :
    - **Name** : `CustAccount`
    - **Type** : Chaine
-6. Clique sur **Enregistrer**
-7. Ferme le designer, puis clique sur **Modifier le statut** pour passer la configuration de **Brouillon** à **Terminé(e)**
+7. Clique sur **Enregistrer**
+8. Ferme le designer, puis clique sur **Modifier le statut** pour passer la configuration de **Brouillon** à **Terminé(e)**
 {{< img src="images/ER/image8.png" alt="chage status" >}}
 **Pourquoi passer par "Change status" ?** Une configuration en statut "Draft" (brouillon) est en cours d'édition. Il faut la faire passer par au moins "Terminé(e)" pour qu'elle devienne sélectionnable comme source dans les étapes suivantes (mapping et format).
  

@@ -68,17 +68,20 @@ Let's use a concrete, deliberately simple example for this first part: a data mo
 2. Select **Designer**
 {{< img src="images/ER/image5.png" alt="select model designer" >}}
 3. In the designer, select **New** to add the root node:
-   - **Name**: `SalesOrder`
+   - **Name**: `SalesOrderModel`
 {{< img src="images/ER/image6.png" alt="add root" >}}
-4. Select this root node, then select **New** again to add a first child field:
+4. Select this root node, then select **New** again to add a first child node `SalesOrder` of type `Record List`.
+This node show list of sales orders.
+{{< img src="images/ER/image9.png" alt="add root" >}}
+5. Select `SalesOrder` node , then select **New** again to add a first child node field:
    - **Name**: `SalesId`
    - **Type**: String
 {{< img src="images/ER/image7.png" alt="add root" >}}
-5. Repeat the operation to add:
+6. Repeat the operation to add:
    - **Name**: `CustAccount`
    - **Type**: String
-6. Select **Save**
-7. Close the designer, then select **Change status** to move the configuration from **Draft** to **Completed**
+7. Select **Save**
+8. Close the designer, then select **Change status** to move the configuration from **Draft** to **Completed**
 {{< img src="images/ER/image8.png" alt="chage status" >}}
 **Why go through "Change status"?** A configuration in "Draft" status is still being edited. It needs to move to at least "Completed" for it to become selectable as a source in the next steps (mapping and format).
  
