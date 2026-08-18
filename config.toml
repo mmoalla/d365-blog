@@ -79,7 +79,7 @@ buildExpired = false
       description = "Technical tutorials on Dynamics 365 Finance & Operations, Power Platform and the Microsoft ecosystem"
       [languages.en.params.homeInfoParams]
         Title = "D365 F&O Tech Blog 👋"
-        Content = "Tutorials and experience reports on Dynamics 365 Finance & Operations, X++, Power Platform and the Azure/Microsoft ecosystem."
+        Content = "Tutorials and feedback on Dynamics 365 Finance & Operations, X++, Power Platform and the Azure/Microsoft ecosystem."
     [[languages.en.menu.main]]
       identifier = "posts"
       name = "Posts"
