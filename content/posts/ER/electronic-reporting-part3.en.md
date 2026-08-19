@@ -1,5 +1,5 @@
 ---
-title: "Electronic Reporting in D365 F&O - Part 2: Format designer and generating the output"
+title: "Electronic Reporting in D365 F&O - Part 3: Format designer and generating the output"
 date: 2026-08-28
 draft: true
 categories: ["Functional configuration"]
