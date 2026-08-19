@@ -1,0 +1,43 @@
+{{- define "main" }}
+<div class="error-404">
+    <div class="error-404-code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100" class="error-404-svg">
+            <text x="50%" y="70" text-anchor="middle" class="error-404-text">404</text>
+        </svg>
+    </div>
+ 
+    {{- if eq site.Language.Lang "fr" }}
+    <h1 class="error-404-title">Enregistrement introuvable</h1>
+    <p class="error-404-message">
+        Cette page n'existe pas — ou a été déplacée sans laisser de <code>next()</code> pour vous rediriger.
+    </p>
+    <form class="error-404-search" action="{{ "search/" | absLangURL }}" method="get" onsubmit="return false;">
+        <input type="text" id="error-404-search-input" placeholder="Rechercher un article..." aria-label="Rechercher">
+    </form>
+    <div class="error-404-links">
+        <a href="{{ "" | absLangURL }}" class="error-404-btn error-404-btn-primary">Retour à l'accueil</a>
+        <a href="{{ "posts/" | absLangURL }}" class="error-404-btn">Voir les articles</a>
+    </div>
+    {{- else }}
+    <h1 class="error-404-title">Record not found</h1>
+    <p class="error-404-message">
+        This page doesn't exist or it moved.
+    </p>
+    <form class="error-404-search" action="{{ "search/" | absLangURL }}" method="get" onsubmit="return false;">
+        <input type="text" id="error-404-search-input" placeholder="Search articles..." aria-label="Search">
+    </form>
+    <div class="error-404-links">
+        <a href="{{ "" | absLangURL }}" class="error-404-btn error-404-btn-primary">Back to home</a>
+        <a href="{{ "posts/" | absLangURL }}" class="error-404-btn">Browse articles</a>
+    </div>
+    {{- end }}
+</div>
+ 
+<script>
+    document.getElementById("error-404-search-input").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            window.location.href = '{{ "search/" | absLangURL }}?q=' + encodeURIComponent(this.value);
+        }
+    });
+</script>
+{{- end }}{{/* end main */ -}}
