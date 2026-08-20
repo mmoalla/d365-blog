@@ -10,7 +10,7 @@
 <a href="#lightbox-{{ $id }}" class="lightbox-link">
     <img src="{{ $src }}" alt="{{ $alt }}" {{ with $width }}width="{{ . }}"{{ end }} {{ with $style }}style="{{ . }}"{{ end }} />
 </a>
-<a href="#" id="lightbox-{{ $id }}" class="lightbox-overlay">
+<a href="#lightbox-close" id="lightbox-{{ $id }}" class="lightbox-overlay">
     <img src="{{ $src }}" alt="{{ $alt }}">
 </a>
 {{- end -}}
