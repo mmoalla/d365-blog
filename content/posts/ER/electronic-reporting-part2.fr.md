@@ -1,7 +1,7 @@
 ---
 title: "Electronic Reporting dans D365 F&O - Partie 2 : mapping du modèle"
-date: 2026-08-17
-draft: true
+date: 2026-08-20
+draft: false
 categories: ["Configuration fonctionnelle"]
 tags: ["Electronic Reporting", "ER", "Configuration"]
 summary: "Le modèle de données qu'on a construit dans la Partie 1 n'est qu'une structure abstraite, sans données réelles derrière. Le mapping du modèle est ce qui le relie à une vraie table D365 - voici comment relier Sales Order Model à SalesTable, champ par champ."
