@@ -3,7 +3,7 @@ title: "À propos"
 layout: "single"
 hidemeta: true
 ShowToc: false
-ShowShareButtons: false
+disableShare: true
 comments: false
 ---
 
