@@ -57,4 +57,4 @@ L'écran *Model mapping designer* est divisé en 3 panneaux :
  
 - [Vue d'ensemble d'Electronic Reporting (ER) — Microsoft Learn](https://learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/analytics/general-electronic-reporting)
 - [Sources de données Electronic Reporting — Microsoft Learn](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/analytics/er-data-sources)
-- **Partie 3 de cette série** : le designer de format, le mapping du format, et la génération du document final à partir de `Sales Order Model`
+- **Partie 3 de cette série** : Concepteur de format et génération du rapport

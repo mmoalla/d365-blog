@@ -56,4 +56,4 @@ In *Model mapping designer* screen is divided on 3 panels:
 ## Further reading
 - [Overview of Electronic Reporting (ER) — Microsoft Learn](https://learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/analytics/general-electronic-reporting).
 - [Electronic reporting data sources — Microsoft Learn](https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/analytics/er-data-sources).
-- **Part 2 of this series**: model mapping, to link `Sales Order Model` to the real data in `SalesTable`.
+- **Part 3 of this series**: Format designer and generating the output.
