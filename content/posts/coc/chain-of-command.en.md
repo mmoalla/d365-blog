@@ -132,7 +132,7 @@ final class CustTable_PrefixCompany_DS_Extension
  
 ```xpp
 [ExtensionOf(formDataFieldStr(CustTable, CustTable, CustGroup)]
-final class CustTable_PrefixCompany_DF_Extension
+final class CustTable_PrefixCompany_DF_Extension 
 {
     public void modified()
     {
