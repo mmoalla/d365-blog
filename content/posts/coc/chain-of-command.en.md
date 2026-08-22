@@ -18,7 +18,7 @@ The syntax relies on three elements:
 
 ```xpp
 [ExtensionOf(classStr(SalesFormLetter))]
-final class PrefixCompanySalesFormLetter_Extension
+final class SalesFormLetter_PrefixCompany_Class_Extension
 {
     public void update(SalesFormLetter_Invoice _formLetter)
     {
