@@ -11,7 +11,7 @@ summary: "Microsoft is gradually replacing Cloud Hosted Environments (CHE) manag
 ## Context
 For years, developing on Dynamics 365 F&O meant provisioning a **Cloud Hosted Environment (CHE)** from Lifecycle Services (LCS): a dedicated VM that had to be patched, maintained, and that often kept incurring storage costs even after being shut down.
  
-Microsoft introduced a new approach: the **Unified Developer Experience (UDE)**. The core idea is to run finance and operations apps as an application hosted by **Microsoft Dataverse**, alongside Power Apps or Power Automate — rather than as an isolated ERP system requiring its own infrastructure.
+Microsoft introduced a new approach: the **Unified Developer Environment (UDE)**. The core idea is to run finance and operations apps as an application hosted by **Microsoft Dataverse**, alongside Power Apps or Power Automate — rather than as an isolated ERP system requiring its own infrastructure.
  
 Concretely, with UDE:
 - Code editing and debugging still happen locally, in Visual Studio.

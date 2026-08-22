@@ -18,7 +18,7 @@ La syntaxe repose sur trois éléments :
 
 ```xpp
 [ExtensionOf(classStr(SalesFormLetter))]
-final class MonEntreprise_SalesFormLetter_Extension
+final class PrefixCompanyCompanySalesFormLetter_Extension
 {
     public void update(SalesFormLetter_Invoice _formLetter)
     {
@@ -56,7 +56,7 @@ Le principe est celui que nous venons de voir dans l'introduction. Un autre exem
 
 ```xpp
 [ExtensionOf(classStr(CustPaymSchedRule))]
-final class PrefixCompanyCustPaymSchedRule_Extension
+final class CustPaymSchedRule_PrefixCompanyCompany_Class_Extension
 {
     public AmountMST calcPaymAmount(AmountMST _amount, int _numberOfPayments)
     {
@@ -64,7 +64,7 @@ final class PrefixCompanyCustPaymSchedRule_Extension
 
         if (this.RoundUp)
         {
-            amount = PrefixCompanyRoundingHelper::roundUp(amount);
+            amount = PrefixCompanyCompanyRoundingHelper::roundUp(amount);
         }
 
         return amount;
@@ -76,7 +76,7 @@ final class PrefixCompanyCustPaymSchedRule_Extension
 
 ```xpp
 [ExtensionOf(tableStr(CustTable))]
-final class CustTable_Prefix_T_Extension
+final class CustTable_PrefixCompanyCompany_T_Extension
 {
     void initValue()
     {
@@ -93,7 +93,7 @@ Ici, nous ciblons le formulaire lui-même — utile pour accrocher ses méthodes
 
 ```xpp
 [ExtensionOf(formStr(CustTable))]
-final class CustTable_Prefix_F_Extension
+final class CustTable_PrefixCompany_F_Extension
 {
     public void init()
     {
@@ -110,7 +110,7 @@ Chaque `FormDataSource` (le lien entre un formulaire et une table) peut être é
 
 ```xpp
 [ExtensionOf(formDataSourceStr(CustTable, CustTable))]
-final class CustTable_Prefix_DS_Extension
+final class CustTable_PrefixCompany_DS_Extension
 {
     public int active()
     {
@@ -133,7 +133,7 @@ final class CustTable_Prefix_DS_Extension
 
 ```xpp
 [ExtensionOf(formDataFieldStr(CustTable, CustTable, CustGroup)]
-final class CustTable_Prefix_DF_Extension
+final class CustTable_PrefixCompany_DF_Extension
 {
     public void modified()
     {
@@ -154,7 +154,7 @@ final class CustTable_Prefix_DF_Extension
 
 ```xpp
 [ExtensionOf(formControlStr(CustTable, ButtonDelete))]
-final class CustTable_Prefix_FC_Extension
+final class CustTable_PrefixCompany_FC_Extension
 {
     public void clicked()
     {
@@ -173,7 +173,7 @@ final class CustTable_Prefix_FC_Extension
 
 ```xpp
 [ExtensionOf(tableStr(CustomersV3Entity))]
-final class CustomersV3Entity_Prefix_Entity_Extension
+final class CustomersV3Entity_PrefixCompany_Entity_Extension
 {
     public boolean validateWrite()
     {

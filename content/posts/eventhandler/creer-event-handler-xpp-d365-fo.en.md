@@ -33,7 +33,7 @@ public class CustTableHandler
 ```
 
 ### 2. Identify the event to intercept
-Open the `CustTable` table in the Application Explorer and locate the `confirmAndSaveCustGroupChange()` method. Here we want to execute an action **after** a sales order is created.
+Open the `CustTable` table in the Application Explorer and locate the `confirmAndSaveCustGroupChange()` method.
 
 {{< img src="images/eventHandler/SalesTable.png" alt="Sales table object" >}}
 {{< img src="images/eventHandler/SalesCopyEvent.png" alt="Sales table object" >}}

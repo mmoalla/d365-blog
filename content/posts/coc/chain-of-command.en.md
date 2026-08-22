@@ -18,7 +18,7 @@ The syntax relies on three elements:
 
 ```xpp
 [ExtensionOf(classStr(SalesFormLetter))]
-final class MonEntreprise_SalesFormLetter_Extension
+final class PrefixCompanySalesFormLetter_Extension
 {
     public void update(SalesFormLetter_Invoice _formLetter)
     {
@@ -29,7 +29,7 @@ final class MonEntreprise_SalesFormLetter_Extension
 }
 ```
  
-What doesn't get covered often is that **every type of X++ object has its own targeting function** inside the `[ExtensionOf(...)]` attribute. Using the wrong function for the wrong object is the most common mistake when discovering CoC on forms — compilation often fails without a very clear message about the actual cause.
+What doesn't get covered often is that **every type of X++ object has its own targeting function** inside the `[ExtensionOf(...)]` attribute. Using the wrong function for the wrong object is the most common mistake when discovering CoC on forms - compilation often fails without a very clear message about the actual cause.
  
 Here's the function to use for each of the seven most common extension points:
  
@@ -55,7 +55,7 @@ The principle is the one we just saw in the introduction. Another common example
  
 ```xpp
 [ExtensionOf(classStr(CustPaymSchedRule))]
-final class PrefixCompanyCustPaymSchedRule_Extension
+final class CustPaymSchedRule_PrefixCompany_Class_Extension
 {
     public AmountMST calcPaymAmount(AmountMST _amount, int _numberOfPayments)
     {
@@ -75,7 +75,7 @@ final class PrefixCompanyCustPaymSchedRule_Extension
  
 ```xpp
 [ExtensionOf(tableStr(CustTable))]
-final class CustTable_Prefix_T_Extension
+final class CustTable_PrefixCompany_T_Extension
 {
     void initValue()
     {
@@ -92,7 +92,7 @@ Here we target the form itself — useful for hooking into its global methods li
  
 ```xpp
 [ExtensionOf(formStr(CustTable))]
-final class CustTable_Prefix_F_Extension
+final class CustTable_PrefixCompany_F_Extension
 {
     public void init()
     {
@@ -109,7 +109,7 @@ Each `FormDataSource` (the link between a form and a table) can be extended inde
  
 ```xpp
 [ExtensionOf(formDataSourceStr(CustTable, CustTable))]
-final class CustTable_Prefix_DS_Extension
+final class CustTable_PrefixCompany_DS_Extension
 {
     public int active()
     {
@@ -132,7 +132,7 @@ final class CustTable_Prefix_DS_Extension
  
 ```xpp
 [ExtensionOf(formDataFieldStr(CustTable, CustTable, CustGroup)]
-final class CustTable_Prefix_DF_Extension
+final class CustTable_PrefixCompany_DF_Extension
 {
     public void modified()
     {
@@ -153,7 +153,7 @@ final class CustTable_Prefix_DF_Extension
  
 ```xpp
 [ExtensionOf(formControlStr(CustTable, ButtonDelete))]
-final class CustTable_Prefix_FC_Extension
+final class CustTable_PrefixCompany_FC_Extension
 {
     public void clicked()
     {
@@ -172,7 +172,7 @@ final class CustTable_Prefix_FC_Extension
  
 ```xpp
 [ExtensionOf(tableStr(CustomersV3Entity))]
-final class CustomersV3Entity_Prefix_Entity_Extension
+final class CustomersV3Entity_PrefixCompany_Entity_Extension
 {
     public boolean validateWrite()
     {
