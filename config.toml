@@ -3,7 +3,8 @@ theme = "PaperMod"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
-paginate = 5
+[pagination]
+  pagerSize = 10
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
