@@ -1,7 +1,7 @@
 ---
 title: "Electronic Reporting dans D365 F&O - Partie 3 : Concepteur de format et génération du rapport"
-date: 2026-08-28
-draft: true
+date: 2026-08-23
+draft: false
 categories: ["Configuration fonctionnelle"]
 tags: ["Electronic Reporting", "ER", "Configuration"]
 summary: "Le modèle et la correspondance sont prêts - il est maintenant temps de produire réellement un fichier. Voici comment concevoir un format Excel pour le modèle de commande client, le lier au modèle et générer un export réel."

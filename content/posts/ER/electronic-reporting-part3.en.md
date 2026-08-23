@@ -1,7 +1,7 @@
 ---
 title: "Electronic Reporting in D365 F&O - Part 3: Format designer and generating the output"
-date: 2026-08-28
-draft: true
+date: 2026-08-23
+draft: false
 categories: ["Functional configuration"]
 tags: ["Electronic Reporting", "ER", "Configuration"]
 summary: "The model and the mapping are ready - now it's time to actually produce a file. Here's how to design an Excel format for Sales Order Model, bind it to the model, and generate a real export."
