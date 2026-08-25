@@ -4,7 +4,7 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 5
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
