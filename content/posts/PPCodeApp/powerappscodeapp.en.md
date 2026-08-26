@@ -32,7 +32,7 @@ If you're a developer who's always found canvas apps too limiting but didn't wan
 2. Select environment in wich you will create your code app.
 3. Click **Setting**.
 4. In **Product** menu, click **Features** sub menu.
-5 Scroll Down and enable **Power Apps Code Apps** feature.
+5. Scroll Down and enable **Power Apps Code Apps** feature.
 {{< img src="images/PPCodeApp/image1.png" >}}
 
 ## Step 2: Scaffold the project from the official template
