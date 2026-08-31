@@ -20,7 +20,7 @@ This article walks through the recurring causes of slow canvas apps, roughly in 
 ## Step 1: Optimise loading sumultinously Datasets
 Data is loaded by connecting to the data source connector. Sequential loading using for example multiple `ClearCollect` function in the `OnStart` property significantly slows down the application.
 To reduce load times, the **Concurrent** function is used; this allows data (such as multiple collections) to be loaded simultaneously rather than sequentially.
-{{< img src="images/powerapps/image1.png" >}}
+{{< img src="images/powerapps/Image1.png" >}}
  
 ## Step 2: Cache table data
 Use the **ClearCollect** and **Set** function to locally cache table data and avoid loading it into galleries, forms, dropdown controls and so on, every time a screen is opened.
