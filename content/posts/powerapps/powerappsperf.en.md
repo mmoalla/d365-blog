@@ -24,15 +24,15 @@ To reduce load times, the **Concurrent** function is used; this allows data (suc
  
 ## Step 2: Cache table data
 Use the **ClearCollect** and **Set** function to locally cache table data and avoid loading it into galleries, forms, dropdown controls and so on, every time a screen is opened.
-{{< img src="images/powerapps/image2.png" >}}
-{{< img src="images/powerapps/image3.png" >}}
+{{< img src="images/powerapps/Image2.png" >}}
+{{< img src="images/powerapps/Image3.png" >}}
 
 ## Step 3: Limiting the size of a collection
 Limit the number of columns in a collection and select that you use in the app
-{{< img src="images/powerapps/image4.png" >}}
+{{< img src="images/powerapps/Image4.png" >}}
 
 ## Step 4: Bulk update
-{{< img src="images/powerapps/image5.png" >}}
+{{< img src="images/powerapps/Image5.png" >}}
  
 ## Step 5: minimize what happens at startup
 Everything in `App.OnStart` runs before the user sees anything. The leaner that formula, the faster the perceived startup.

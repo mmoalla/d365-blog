@@ -20,19 +20,19 @@ Cet article présente les causes récurrentes des applications canevas lentes, c
 ## Étape 1 : charger les jeux de données simultanément
 Les données sont chargées en se connectant au connecteur de la source de données. Le chargement séquentiel, par exemple à l'aide de plusieurs fonctions `ClearCollect` dans la propriété `OnStart`, ralentit considérablement l'application.
 Pour réduire les temps de chargement, utilisez la fonction **Concurrent** : elle permet de charger les données (comme plusieurs collections) simultanément plutôt que séquentiellement.
-{{< img src="images/powerapps/image1.png" >}}
+{{< img src="images/powerapps/Image1.png" >}}
  
 ## Étape 2 : mettre les données des tables en cache
 Utilisez les fonctions **ClearCollect** et **Set** pour mettre localement en cache les données des tables et éviter de les charger dans les galeries, les formulaires, les contrôles de liste déroulante, etc., chaque fois qu'un écran est ouvert.
-{{< img src="images/powerapps/image2.png" >}}
-{{< img src="images/powerapps/image3.png" >}}
+{{< img src="images/powerapps/Image2.png" >}}
+{{< img src="images/powerapps/Image3.png" >}}
 
 ## Étape 3 : limiter la taille d'une collection
 Limitez le nombre de colonnes d'une collection et sélectionnez uniquement celles que vous utilisez dans l'application.
-{{< img src="images/powerapps/image4.png" >}}
+{{< img src="images/powerapps/Image4.png" >}}
 
 ## Étape 4 : effectuer les mises à jour en bloc
-{{< img src="images/powerapps/image5.png" >}}
+{{< img src="images/powerapps/Image5.png" >}}
  
 ## Étape 5 : réduire les opérations effectuées au démarrage
 Tout ce qui se trouve dans `App.OnStart` est exécuté avant que l'utilisateur ne voie quoi que ce soit. Plus cette formule est légère, plus le démarrage semble rapide.
