@@ -8,8 +8,8 @@ comments: false
 ---
 
 <div style="display: flex; gap: 20px; align-items: center; justify-content: center;">
-  {{< img src="images/profile.jpg" alt="Photo de profil" width="200" style="border-radius: 50%;" >}}
-  {{< img src="images/maltprofile.png" alt="Photo de profil" width="250" style="border-radius: 50%;" >}}
+  <a href="https://www.linkedin.com/in/mmoalla/" target="_blank">{{< img src="images/profile.jpg" alt="Photo de profil" width="200" style="border-radius: 50%;" lightbox="false">}} </a>
+  <a href="https://www.malt.fr/profile/mehdimoalla1" target="_blank"> {{< img src="images/maltprofile.png" alt="Photo de profil" width="250" style="border-radius: 50%;" lightbox="false">}}</a>
 </div>
 
 Je suis architecte technique freelance sur **Dynamics 365 Finance & Operations**, et ce blog rassemble mes notes techniques, tutoriels et retours d'expérience sur l'écosystème Microsoft :
