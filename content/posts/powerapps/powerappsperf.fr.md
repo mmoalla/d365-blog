@@ -1,7 +1,7 @@
 ---
 title: "Performance de Power Apps : techniques pratiques pour corriger les applications canevas lentes"
 date: 2026-08-31
-draft: true
+draft: false
 categories: ["Power Platform"]
 tags: ["Power Apps", "Performance", "Applications canevas", "Power Fx", "Dataverse"]
 summary: "Démarrage lent, écrans qui manquent de fluidité, actions retardées : les problèmes de performance des applications canevas proviennent souvent de quelques schémas récurrents. Voici comment les diagnostiquer et appliquer les corrections qui font réellement la différence."

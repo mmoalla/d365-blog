@@ -1,7 +1,7 @@
 ---
 title: "Power Apps performance: practical techniques to fix slow canvas apps"
 date: 2026-08-31
-draft: true
+draft: false
 categories: ["Power Platform"]
 tags: ["Power Apps", "Performance", "Canvas Apps", "Power Fx", "Dataverse"]
 summary: "Slow startup, laggy screens, delayed actions — canvas app performance problems tend to come from a handful of recurring patterns. Here's how to diagnose them and the fixes that actually move the needle."
