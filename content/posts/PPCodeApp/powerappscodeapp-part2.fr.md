@@ -189,4 +189,4 @@ Le nom d'utilisateur, la photo ainsi que l'email s'affichent.
 ## Pour aller plus loin
  
 - [Référence du connecteur Office 365 Users — Microsoft Learn](https://learn.microsoft.com/connectors/office365users/)
-- [Partie 1 de cette série : créer et déployer une Code App](/posts/power-apps-code-apps-overview/)
+- [Partie 1 de cette série : créer et déployer une Code App]({{% ref path="posts/PPCodeApp/powerappscodeapp" lang="fr" %}})

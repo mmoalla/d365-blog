@@ -191,4 +191,4 @@ The username, photo, and email are displayed.
 ## Going further
  
 - [Office 365 Users connector reference — Microsoft Learn](https://learn.microsoft.com/connectors/office365users/)
-- [Part 1 of this series: create and deploy a Code App](/posts/power-apps-code-apps-overview/)
+- [Part 1 of this series: create and deploy a Code App]({{% ref path="posts/PPCodeApp/powerappscodeapp" lang="en" %}})
