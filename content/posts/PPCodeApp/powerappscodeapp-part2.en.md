@@ -43,8 +43,8 @@ This is exactly the combination used in the hook below.
  
 ## Step 2: Creating the `userProfile` hook
 
-1 - Create a `hooks` folder in `src`.
-2 - Create the file `src/hooks/useUserProfile.ts`:
+1. Create a `hooks` folder in `src`.
+2. Create the file `src/hooks/useUserProfile.ts`:
  
 ```ts
 import { useEffect,useState, useMemo } from 'react';
@@ -111,8 +111,8 @@ export function useUserProfile() {
 - Photo errors are captured **without failing the whole hook**: a user without a profile photo should still be able to see their name and title.
 
 ## Step 3: Creating a component
-1 - Create the `components` folder in `src`.
-2 - Create the component `src/components/UserProfile.tsx`:
+1. Create the `components` folder in `src`.
+2. Create the component `src/components/UserProfile.tsx`:
  
 ```tsx
 import { useUserProfile } from '../../hooks/useUserProfile';

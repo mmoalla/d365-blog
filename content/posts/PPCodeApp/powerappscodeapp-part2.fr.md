@@ -42,8 +42,8 @@ C'est exactement cette combinaison qu'on retrouve dans le hook ci-dessous.
  
 ## Étape 2 : Creation du hook `userProfile`
 
-1 - Créez un dossier *hooks* dans `src`.
-2 - Créez le fichier `src/hooks/useUserProfile.ts` :
+1. Créez un dossier *hooks* dans `src`.
+2. Créez le fichier `src/hooks/useUserProfile.ts` :
  
 ```ts
 import { useEffect,useState, useMemo } from 'react';
@@ -110,8 +110,8 @@ export function useUserProfile() {
 - Les erreurs de la photo sont capturées **sans faire échouer tout le hook** : un utilisateur sans photo de profil doit quand même pouvoir voir son nom et son poste.
 
 ## Étape 3 : Création d'un composant.
-1- Créez le dossier *components* dans `src`.
-2- Créez le composant `src/components/UserProfile.tsx` :
+1. Créez le dossier *components* dans `src`.
+2. Créez le composant `src/components/UserProfile.tsx` :
  
 ```tsx
 import { useUserProfile } from '../../hooks/useUserProfile';
