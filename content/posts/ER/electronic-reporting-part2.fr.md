@@ -9,7 +9,7 @@ summary: "Le modèle de données qu'on a construit dans la Partie 1 n'est qu'une
  
 ## Contexte
  
-Dans la [Partie 1 de cette série](/posts/electronic-reporting-part1/), on a construit `Sales Order Model` : un modèle de données avec un nœud racine `SalesOrderModel` et deux champs, `SalesId` et `CustAccount`. À ce stade, le modèle est purement structurel — il décrit *ce que* le document doit contenir, mais il ne sait pas encore *d'où* viennent réellement ces données dans D365.
+Dans la [Partie 1 de cette série]({{% ref path="posts/ER/electronic-reporting-part1" lang="fr" %}}), on a construit `Sales Order Model` : un modèle de données avec un nœud racine `SalesOrderModel` et deux champs, `SalesId` et `CustAccount`. À ce stade, le modèle est purement structurel — il décrit *ce que* le document doit contenir, mais il ne sait pas encore *d'où* viennent réellement ces données dans D365.
  
 Dans cet article, on va configurer le mapping du modèle vers une source de données et relier le modèle créé précédemment aux données correspondantes.
  

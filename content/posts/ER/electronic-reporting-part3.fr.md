@@ -9,7 +9,7 @@ summary: "Le modèle et la correspondance sont prêts - il est maintenant temps 
 
 ## Contexte
 
-Dans [Partie 1](/posts/electronic-reporting-partie-1-fondations-modele-donnees/), nous avons construit le `Modèle de commande client`, une structure abstraite avec `SalesId` et `CustAccount`. Dans [Partie 2](/posts/electronic-reporting-partie-2-model-mapping/), nous avons connecté cette structure aux données réelles en la mappant à `SalesTable`.
+Dans [Partie 1]({{% ref path="posts/ER/electronic-reporting-part1" lang="fr" %}}), nous avons construit le `Modèle de commande client`, une structure abstraite avec `SalesId` et `CustAccount`. Dans [Partie 2]({{% ref path="posts/ER/electronic-reporting-part2" lang="fr" %}}), nous avons connecté cette structure aux données réelles en la mappant à `SalesTable`.
 
 Aucune de ces deux pièces ne produit en elle-même un fichier réel. C'est le rôle du **format** : il décrit la forme physique de la sortie (un document XML, un fichier CSV, un classeur Excel...), et il est lié champ par champ au modèle de données — non pas directement au tableau. Cette dernière couche est celle qui transforme finalement les « données abstraites » en « un fichier que vous pouvez ouvrir ».
 

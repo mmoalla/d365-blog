@@ -8,7 +8,7 @@ summary: "The model and the mapping are ready - now it's time to actually produc
 ---
  
 ## Context
-In [Part 1](/posts/electronic-reporting-partie-1-fondations-modele-donnees/), we built `Sales Order Model`, an abstract structure with `SalesId` and `CustAccount`. In [Part 2](/posts/electronic-reporting-partie-2-model-mapping/), we connected that structure to real data by mapping it to `SalesTable`.
+In [Part 1]({{% ref path="posts/ER/electronic-reporting-part1" lang="en" %}}), we built `Sales Order Model`, an abstract structure with `SalesId` and `CustAccount`. In [Part 2]({{% ref path="posts/ER/electronic-reporting-part2" lang="en" %}}), we connected that structure to real data by mapping it to `SalesTable`.
  
 Neither of those two pieces produces an actual file on their own. That's the role of the **format**: it describes the physical shape of the output (an XML document, a CSV file, an Excel workbook...), and it's bound field by field to the data model — not directly to the table. This last layer is what finally turns "abstract data" into "a file you can open."
  

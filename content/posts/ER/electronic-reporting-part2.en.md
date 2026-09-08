@@ -9,7 +9,7 @@ summary: "The data model we built in Part 1 is just an abstract shape with no re
  
 ## Context
  
-In [Part 1 of this series](/posts/electronic-reporting-part1/), we built `Sales Order Model`: a data model with a root node `SalesOrderModel` and two fields, `SalesId` and `CustAccount`. At that point, the model is purely structural — it describes *what* the document should contain, but it has no idea *where* that data actually comes from in D365.
+In [Part 1 of this series]({{% ref path="posts/ER/electronic-reporting-part1" lang="en" %}}), we built `Sales Order Model`: a data model with a root node `SalesOrderModel` and two fields, `SalesId` and `CustAccount`. At that point, the model is purely structural — it describes *what* the document should contain, but it has no idea *where* that data actually comes from in D365.
 
 In this post we will configure the model datasource mapping and map the model previously created to corresponding data.
 
