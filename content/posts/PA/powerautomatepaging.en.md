@@ -91,5 +91,4 @@ Do not wait until the loop ends to process the data. Add your processing step (u
 - **Treating a missing `MoreRecords` value as `true` by default**: if the expression that reads this field does not handle the case where it is empty or missing, the loop may never end.
 
 ## Further reading
-- [Paginate through large result sets with FetchXML — Microsoft Learn](https://learn.microsoft.com/power-apps/developer/data-platform/fetchxml/page-large-result-sets)
 - [Page large result sets (Dataverse) in Power Automate — Power Platform Community](https://community.powerplatform.com/blogs/post/?postid=0864e145-da42-4922-b667-ff10dd160089)

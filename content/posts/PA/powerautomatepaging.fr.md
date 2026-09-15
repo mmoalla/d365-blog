@@ -91,5 +91,4 @@ N'attends pas la fin de la boucle pour traiter les données — ajoute ton trait
 - **Traiter un `MoreRecords` absent comme `true` par défaut** : si l'expression qui lit ce champ ne gère pas le cas où il est vide/absent, la boucle peut ne jamais se terminer.
 
 ## Pour aller plus loin
-- [Paginer les jeux de résultats volumineux avec FetchXML — Microsoft Learn](https://learn.microsoft.com/power-apps/developer/data-platform/fetchxml/page-large-result-sets)
 - [Page large result sets (Dataverse) in Power Automate — Power Platform Community](https://community.powerplatform.com/blogs/post/?postid=0864e145-da42-4922-b667-ff10dd160089)
