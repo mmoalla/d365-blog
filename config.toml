@@ -82,6 +82,11 @@ buildExpired = false
       name = "À propos"
       url = "about/"
       weight = 40
+    [[languages.fr.menu.main]]
+      identifier = "search"
+      name = "Recherche"
+      url = "search/"
+      weight = 50
 
   [languages.en]
     label = "English"
@@ -117,4 +122,4 @@ buildExpired = false
       identifier = "search"
       name = "Search"
       url = "search/"
-      weight = 40
+      weight = 50
