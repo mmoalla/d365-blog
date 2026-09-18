@@ -5,9 +5,13 @@ draft: false
 categories: ["X++ & Dev"]
 tags: ["X++", "Chain of Command", "Extensions"]
 summary: "Chain of Command isn't just for classes and tables: forms, data sources, fields, controls, and data entities each have their own extension syntax. Here's a complete tour, with one example for each case."
+lightbox:
+  enabled: true
+justified_gallery:
+  enabled: true
 ---
  
-## Context
+# Context
  
 **Chain of Command (CoC)**, alongside Event Handlers, is one of the two main extensibility mechanisms in Dynamics 365 F&O. Unlike Event Handlers, CoC lets you **change the behavior** of an existing method: alter its return value, transform its parameters, or even block its execution entirely.
  
@@ -43,13 +47,15 @@ Here's the function to use for each of the seven most common extension points:
 | Form control | `formControlStr(FormName, ControlName)` |
 | Data Entity | `tableStr(DataEntityName)` (a data entity is technically a table) |
  
-## Prerequisites
+# Prerequisites
  
 - Dynamics 365 F&O version 10.0.x.
 - Visual Studio with the D365 F&O development tools.
 - An existing custom model.
 - Being familiar with the basics of Chain of Command (recommended).
-## 1. Extending a class
+
+# Steps
+## Extending a class
  
 The principle is the one we just saw in the introduction. Another common example: intercepting an amount calculation in a standard business class.
  
@@ -71,7 +77,7 @@ final class CustPaymSchedRule_PrefixCompany_Class_Extension
 }
 ```
  
-## 2. Extending a table
+## Extending a table
  
 ```xpp
 [ExtensionOf(tableStr(CustTable))]
@@ -86,7 +92,7 @@ final class CustTable_PrefixCompany_T_Extension
 }
 ```
  
-## 3. Extending a form
+## Extending a form
  
 Here we target the form itself — useful for hooking into its global methods like `init()`:
  
@@ -103,7 +109,7 @@ final class CustTable_PrefixCompany_F_Extension
 }
 ```
  
-## 4. Extending a form data source
+## Extending a form data source
  
 Each `FormDataSource` (the link between a form and a table) can be extended independently — useful for hooking into record loading, validation, or activation:
  
@@ -128,7 +134,7 @@ final class CustTable_PrefixCompany_DS_Extension
  
 **Important note:** the `FormDataSourceName` parameter in `formDataSourceStr(FormName, FormDataSourceName)` refers to the **name of the data source in the form's tree view**, not necessarily the name of the underlying table — the two are often identical, but not always (a data source can be renamed in the designer).
  
-## 5. Extending a data field on a form
+## Extending a data field on a form
  
 ```xpp
 [ExtensionOf(formDataFieldStr(CustTable, CustTable, CustGroup)]
@@ -149,7 +155,7 @@ final class CustTable_PrefixCompany_DF_Extension
 }
 ```
  
-## 6. Extending a form control
+## Extending a form control
  
 ```xpp
 [ExtensionOf(formControlStr(CustTable, ButtonDelete))]
@@ -168,7 +174,7 @@ final class CustTable_PrefixCompany_FC_Extension
 }
 ```
  
-## 7. Extending a Data Entity
+## Extending a Data Entity
  
 ```xpp
 [ExtensionOf(tableStr(CustomersV3Entity))]
@@ -191,11 +197,11 @@ final class CustomersV3Entity_PrefixCompany_Entity_Extension
  
 This is particularly useful for adding validation or transformation logic during data imports through the Data Management Framework, without touching the entity's standard definition.
  
-## Common pitfalls
+# Common pitfalls
  
 - **Forgetting that the data source name can differ from the table name**: always check the exact name shown in the form designer's tree view, not just the table name.
 - **Not handling the case where `next` is never called on a control**: as in the "Delete" button example, this is intentional and legitimate, but make sure it's actually intended and not an oversight — otherwise clicking a standard button can appear to "do nothing" without a clear error message for the user.
 - **Extending a Data Entity thinking it behaves differently from a table**: it doesn't — it follows exactly the same CoC rules as a standard table.
-## Further reading
+# Further reading
  
 - [Microsoft Learn documentation: method wrapping and Chain of Command](https://learn.microsoft.com/dynamics365/fin-ops-core/dev-itpro/extensibility/method-wrapping-coc)

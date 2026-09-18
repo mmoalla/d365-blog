@@ -6,9 +6,13 @@ weight: 2
 categories: ["X++ & Dev"]
 tags: ["X++", "Event Handler", "Extensions", "Chain of Command"]
 summary: "How to properly intercept a standard event in D365 F&O without changing standard code, with a concrete example on the SalesTable."
+lightbox:
+  enabled: true
+justified_gallery:
+  enabled: true
 ---
 
-## Context
+# Context
 In Dynamics 365 Finance & Operations, directly modifying Microsoft standard code is prohibited (the "over-layering" model disappeared after AX 2012). All customizations must be done by **extensions**.
 
 Two main mechanisms exist to intervene on existing code:
@@ -18,32 +22,32 @@ Two main mechanisms exist to intervene on existing code:
 
  **Use Event Handler When:** You need to trigger logic when an event occurs. You want to avoid modifying existing code. It’s perfect for **UI, data, and validation events.**
 
-## Prerequisites
+# Prerequisites
 - Dynamics 365 F&O version 10.0.x (Tier 1 dev box, cloud-hosted environment, or UDE).
 - Visual Studio.
 
-## Steps
-### 1. Create the project and the extension class
+# Steps
+## Create the project and the extension class
 In Visual Studio, create a new D365 F&O project, then add an event class:
 
-```xpp
+```xpp {lineNos=true filename=CustTableHandler}
 public class CustTableHandler
 {
 }
 ```
 
-### 2. Identify the event to intercept
+## Identify the event to intercept
 Open the `CustTable` table in the Application Explorer and locate the `confirmAndSaveCustGroupChange()` method.
 
-{{< img src="images/eventHandler/SalesTable.png" alt="Sales table object" >}}
-{{< img src="images/eventHandler/SalesCopyEvent.png" alt="Sales table object" >}}
+![](images/eventHandler/SalesTable.png)
+![](images/eventHandler/SalesCopyEvent.png)
 
 Two event options exist for most standard methods:
 - `[PostHandlerFor]` — runs after the original method.
 - `[PreHandlerFor]` — runs before the original method.
 
-### 3. Write the Post Event Handler
-```xpp
+## Write the Post Event Handler
+```xpp {lineNos=true filename=CustTableHandler}
 class CustTableHandler
 {
     [PreHandlerFor(tableStr(CustTable), tableStaticMethodStr(CustTable, confirmAndSaveCustGroupChange))]
@@ -66,10 +70,10 @@ class CustTableHandler
 - The handler must be `static` and accept a `XppPrePostArgs` parameter.
 - The method name has no functional importance, but the `Table_Post_methode` convention improves readability
 
-### 4. Add validation with a Pre Event Handler
+## Add validation with a Pre Event Handler
 To block an operation before it happens (e.g., prevent creating an order for an inactive customer):
 
-```xpp
+```xpp 
 [PreHandlerFor(tableStr(SalesTable), tableMethodStr(SalesTable, insert))]
 public static void SalesTable_Pre_insert(XppPrePostArgs args)
 {
@@ -83,8 +87,8 @@ public static void SalesTable_Pre_insert(XppPrePostArgs args)
 }
 ```
 
-## Common pitfalls
+# Common pitfalls
 - **Multiple event handlers on the same event** : execution order between extensions from different models is not guaranteed; avoid relying on order.
 
-## Further reading
+# Further reading
 - Microsoft documentation : <a href="https://learn.microsoft.com/fr-fr/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-events" target="_blank">Event Handeler</a> 

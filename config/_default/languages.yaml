@@ -1,0 +1,13 @@
+en:
+  locale: en
+  label: "English"
+  weight: 1
+  params:
+    description: "Technical tutorials on Dynamics 365 Finance & Operations, Power Platform and the Microsoft ecosystem"
+
+fr:
+  locale: fr-FR
+  label: "Français"
+  weight: 2
+  params:
+    description: "Tutoriels techniques sur Dynamics 365 Finance & Operations, Power Platform et l'écosystème Microsoft"

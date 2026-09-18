@@ -6,10 +6,13 @@ categories: ["Power Platform"]
 tags: ["Power Apps", "Code Apps", "React", "TypeScript", "Office 365 Users"]
 summary: "Dans la Partie 1, on a créé le squelette d'une Code App et connecté le connecteur Office 365 Users. Ici, on construit le composant React qui affiche le nom, le poste et la photo de l'utilisateur actuellement connecté."
 series: "Power Apps Code Apps"
+lightbox:
+  enabled: true
+justified_gallery:
+  enabled: true
 ---
  
-## Contexte
- 
+# Contexte
 Dans la [Partie 1 de cette série]({{% ref path="posts/PPCodeApp/powerappscodeapp" lang="fr" %}}), on a créé le squelette d'une Code App avec le template officiel, puis ajouté le connecteur **Office 365 Users** via :
  
 ```bash
@@ -22,12 +25,13 @@ Dans cet article, on va :
 - Voir rapidement quelques fondamentaux React utilisés (useState, useEffect, useMemo, hook personnalisé).
 - Écrire un hook qui récupère le profil et la photo de l'utilisateur connecté.
 - Construire un composant qui les affiche proprement, avec gestion du chargement et des erreurs.
-## Prérequis
+# Prérequis
  
 - Le projet de la Partie 1, avec le connecteur Office 365 Users déjà ajouté.
 - Les notions de base du framework ReactJS.
 
-## Étape 1 : Notions fondamentaux de ReactJS
+# Étapes
+## Notions fondamentaux de ReactJS
  
 Si vous découvrez React, voici les trois briques qu'on va utiliser, en une phrase chacune :
  
@@ -40,12 +44,12 @@ Si vous découvrez React, voici les trois briques qu'on va utiliser, en une phra
 - **Hook personnalisé** — une fonction dont le nom commence par `use`, qui regroupe de la logique réutilisable (state + effect ensemble) pour qu'un composant n'ait pas à la réécrire à chaque fois
 C'est exactement cette combinaison qu'on retrouve dans le hook ci-dessous.
  
-## Étape 2 : Creation du hook `userProfile`
+## Creation du hook `userProfile`
 
 1. Créez un dossier *hooks* dans `src`.
 2. Créez le fichier `src/hooks/useUserProfile.ts` :
  
-```ts
+```ts {lineNos=true filename=useUserProfile.js}
 import { useEffect,useState, useMemo } from 'react';
 import { Office365UsersService } from '../generated/services/Office365UsersService';
 import type { User } from '../generated/models/Office365UsersModel';
@@ -109,7 +113,7 @@ export function useUserProfile() {
 - Une fois le profil récupéré, `Office365UsersService.UserPhoto(myProfile.data.Id)` va chercher sa photo, dans un second appel séparé - les deux opérations sont distinctes côté connecteur.
 - Les erreurs de la photo sont capturées **sans faire échouer tout le hook** : un utilisateur sans photo de profil doit quand même pouvoir voir son nom et son poste.
 
-## Étape 3 : Création d'un composant.
+## Création d'un composant.
 1. Créez le dossier *components* dans `src`.
 2. Créez le composant `src/components/UserProfile.tsx` :
  
@@ -153,7 +157,7 @@ export default UserProfile;
  
 **Le point technique à retenir ici :** le champ `photo` renvoyé par le connecteur est une chaîne encodée en base64, **sans préfixe**. Pour qu'un navigateur l'affiche comme une image, il faut reconstruire une URI de données complète : `data:image/jpeg;base64,` suivi du contenu — c'est un piège fréquent, l'image reste invisible si ce préfixe est oublié.
  
-## Étape 4 : Intégration du composant dans `App.tsx`
+## Intégration du composant
  
 Dans le composant App.tsx, remplace le contenu du template par défaut :
  
@@ -180,13 +184,13 @@ Lancez l'application en cliquant sur l'url.
 Le nom d'utilisateur, la photo ainsi que l'email s'affichent.
 {{< img src="images/PPCodeApp/image9.png" >}}
 
-## Pièges courants
+# Pièges courants
  
 - **Oublier le préfixe `data:image/jpeg;base64,`** sur la photo : l'appel réussit, la donnée arrive bien, mais l'image reste cassée dans le navigateur puisque `<img src="...">` attend une URI complète, pas juste le contenu encodé.
 - **Ne pas gérer l'absence de photo séparément de l'absence de profil** : un utilisateur sans photo configurée dans Microsoft 365 est un cas normal, pas une erreur bloquante — le hook capture volontairement cette erreur sans casser l'affichage du reste du profil.
 - **Oublier `useMemo`** sur la valeur de retour du hook : sans lui, chaque re-rendu du composant recrée un nouvel objet `{ user, photo, loading, error }`, ce qui peut déclencher des re-rendus inutiles en cascade si ce hook est utilisé par plusieurs composants.
 - **Ne pas relancer `pac code add-data-source`** après avoir ajouté le connecteur si les fichiers `generated/` ne sont pas présents dans le projet — sans eux, `Office365UsersService` n'existe simplement pas encore.
-## Pour aller plus loin
+# Pour aller plus loin
  
 - [Référence du connecteur Office 365 Users — Microsoft Learn](https://learn.microsoft.com/connectors/office365users/)
 - [Partie 1 de cette série : créer et déployer une Code App]({{% ref path="posts/PPCodeApp/powerappscodeapp" lang="fr" %}})

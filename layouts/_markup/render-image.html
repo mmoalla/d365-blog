@@ -1,8 +1,0 @@
-{{- $src := .Destination | relURL -}}
-{{- $id := .Destination | anchorize -}}
-<a href="#lightbox-{{ $id }}" class="lightbox-link">
-    <img src="{{ $src }}" alt="{{ .Text }}" {{ with .Title }}title="{{ . }}"{{ end }}>
-</a>
-<a href="#lightbox-close" id="lightbox-{{ $id }}" class="lightbox-overlay">
-    <img src="{{ $src }}" alt="{{ .Text }}">
-</a>

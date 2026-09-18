@@ -1,0 +1,100 @@
+description: "Technical tutorials on Dynamics 365 Finance & Operations, Power Platform and the Microsoft ecosystem"
+keywords: ["Dynamics 365", "F&O", "X++", "Power Platform", "Power Automate", "Azure", "Microsoft"]
+defaultAuthor: "Mehdi Moalla"
+language: "en"
+shortName: "D365 F&O Tech Blog"
+
+author:
+  name: "Mehdi Moalla"
+  title: "Freelance Technical Solution Architect - Dynamics 365 FinOps & Power Platform"
+  description: "Technical notes, tutorials, and experience reports on the Microsoft ecosystem."
+  avatar: "/images/profile.jpg"
+  social:
+    - name: "Malt"
+      url: "https://www.malt.fr/profile/mehdimoalla1"
+      icon: "malt"
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/mmoalla/"
+      icon: "linkedin"
+    - name: "Email"
+      url: "mailto:mehdimoallaei@gmail.com"
+      icon: "email"
+
+header:
+  sticky: true
+  logo:
+    image: ""
+    link: "/"
+  showThemeSwitch: false
+  showDarkModeSwitch: true
+  showContentWidthSwitch: false
+  showLanguageSwitch: true
+  languageSwitchMode: "dropdown"
+
+dock: "always"
+contentWidth: "56rem"
+
+toc:
+  enabled: true
+  position: "side"
+  pinned: true
+
+colorScheme: "default"
+
+home:
+  recentPostsCount: 5
+  contentOrder:
+    - author-section
+    - page-content
+    - recent-posts
+
+post:
+  showRelated: true
+  relatedPostsCount: 3
+  license:
+    show: false
+
+comments:
+  enabled: true
+  system: "giscus"
+  giscus:
+    repo: "mmoalla/d365-blog"
+    repoId: "R_kgDOThjHNw"
+    category: "General"
+    categoryId: "DIC_kwDOThjHN84DDP-I"
+    mapping: "pathname"
+    strict: "0"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "bottom"
+    theme: "preferred_color_scheme"
+    lang: "en"
+
+analytics:
+  enabled: false
+
+katex:
+  enabled: false
+
+mermaid:
+  enabled: true
+
+gallery:
+  enabled: true
+  defaultLayout: justified
+  gap: 10
+
+lightbox:
+  enabled: true
+
+codeblock:
+  collapse:
+    enabled: true
+    defaultState: expanded
+    autoCollapseLines: 40
+    autoCollapseHeight: 500
+    collapsedHeight: 120
+
+readingProgress:
+  enabled: true
+  showOnHomepage: false

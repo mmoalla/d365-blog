@@ -1,0 +1,63 @@
+baseURL: "https://mmoalla.github.io/d365-blog/"
+locale: en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+title: "D365 F&O Tech Blog"
+theme: "hugo-narrow"
+
+enableEmoji: true
+
+mainSections: ["posts"]
+
+permalinks:
+  posts: /posts/:contentbasename/
+  pages: /:contentbasename/
+
+pagination:
+  pagerSize: 5
+  path: "page"
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+markup:
+  tableOfContents:
+    startLevel: 1
+    endLevel: 4
+    ordered: true
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      extras:
+        delete:
+          enable: true
+        insert:
+          enable: true
+        mark:
+          enable: true
+      strikethrough: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: false
+    noClasses: false
+    style: github
+    tabWidth: 2
+
+outputs:
+  home: ["HTML", "RSS", "JSON", "WebAppManifest"]
+
+outputFormats:
+  WebAppManifest:
+    mediaType: "application/manifest+json"
+    baseName: "site"
+    isPlainText: true
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.158.0
