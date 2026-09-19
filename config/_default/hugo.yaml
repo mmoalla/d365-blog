@@ -18,9 +18,9 @@ pagination:
   path: "page"
 
 taxonomies:
+  series: series
   category: categories
   tag: tags
-  series: series
 
 markup:
   tableOfContents:
