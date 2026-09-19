@@ -48,12 +48,12 @@ In *Model mapping designer* screen is divided on 3 panels:
 1. Select **SalesTable** Table records in data sources panel.
 2. Select **Sales Order** Record List in data model panel. 
 3. Click **Bind**
-{{< img src="images/ER/part2/image4.png" >}}
+![](images/ER/part2/image4.png)
 *The Sales Order record list will now in bold. This means that it is binded to salesTable Records*.
 4. Expend **SalesTable** Table records, find *Customer account* table field and select it.
 5. Expend **Sales Order** Record List and select *CustAccount* node.
 6. Click **Bind**.
-{{< img src="images/ER/part2/image5.png" >}}
+![](images/ER/part2/image5.png)
 7. Repeat the operation for SalesId node:
     - Sales Order with SalesId.
 8. Click **Save**.
