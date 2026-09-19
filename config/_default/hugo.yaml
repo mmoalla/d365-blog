@@ -19,6 +19,7 @@ pagination:
 
 taxonomies:
   series: series
+  archives: archives
   category: categories
   tag: tags
 
