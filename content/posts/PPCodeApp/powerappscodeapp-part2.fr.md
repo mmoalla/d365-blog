@@ -44,7 +44,7 @@ Si vous découvrez React, voici les trois briques qu'on va utiliser, en une phra
 - **Hook personnalisé** — une fonction dont le nom commence par `use`, qui regroupe de la logique réutilisable (state + effect ensemble) pour qu'un composant n'ait pas à la réécrire à chaque fois
 C'est exactement cette combinaison qu'on retrouve dans le hook ci-dessous.
  
-## Creation du hook `userProfile`
+## Creation du hook userProfile
 
 1. Créez un dossier *hooks* dans `src`.
 2. Créez le fichier `src/hooks/useUserProfile.ts` :

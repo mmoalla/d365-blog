@@ -46,7 +46,7 @@ If you are new to React, here are the three building blocks we will use, each in
 - **Custom hook** — a function whose name starts with `use`, grouping reusable logic (state + effect together) so a component does not have to rewrite it every time.
 This is exactly the combination used in the hook below.
  
-## Creating the `userProfile` hook
+## Creating the userProfile hook
 
 1. Create a `hooks` folder in `src`.
 2. Create the file `src/hooks/useUserProfile.ts`:
