@@ -54,6 +54,9 @@ post:
   license:
     show: false
 
+share:
+  enabled: true
+
 comments:
   enabled: true
   system: "giscus"
