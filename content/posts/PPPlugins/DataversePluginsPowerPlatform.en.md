@@ -17,8 +17,7 @@ A **plugin** is a piece of C# code that runs directly inside the Dataverse execu
  
 # Prerequisites
  
-- The [.NET SDK 4.6.2](https://dotnet.microsoft.com/fr-fr/download/dotnet-framework/net462) and the [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) (`pac`) installed
-- A Dataverse environment you're authenticated against (`pac auth create`)
+- The [.NET SDK 4.6.2](https://dotnet.microsoft.com/fr-fr/download/dotnet-framework/net462)
 - Basic C# familiarity.
 
 # Steps

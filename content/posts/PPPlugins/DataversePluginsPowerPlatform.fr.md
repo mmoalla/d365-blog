@@ -17,8 +17,7 @@ Un **plugin** est un morceau de code C# qui s'exécute directement dans le pipel
 
 # Prérequis
 
-- Le [SDK .NET 4.6.2](https://dotnet.microsoft.com/fr-fr/download/dotnet-framework/net462) et la [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) (`pac`) installés
-- Un environnement Dataverse auquel vous êtes authentifié (`pac auth create`)
+- Le [SDK .NET 4.6.2](https://dotnet.microsoft.com/fr-fr/download/dotnet-framework/net462).
 - Une connaissance de base de C#.
 
 # Étapes
