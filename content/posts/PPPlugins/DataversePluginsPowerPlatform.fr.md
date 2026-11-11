@@ -14,7 +14,7 @@ justified_gallery:
 # Contexte
 
 Un **plugin** est un morceau de code C# qui s'exécute directement dans le pipeline d'exécution Dataverse, déclenché par une opération sur les données : création d'un enregistrement, mise à jour d'un champ ou suppression d'une ligne. Contrairement à un flux Power Automate (qui s'exécute de manière asynchrone, en dehors de la transaction et avec un certain délai) ou à un script côté client (qui ne s'exécute que dans le navigateur et peut être contourné par des appels d'API), un plugin s'exécute **de manière synchrone ou asynchrone, côté serveur, dans la même transaction de base de données** que l'opération qui l'a déclenché. C'est donc l'outil adapté lorsque vous devez garantir l'application d'une règle métier, quelle que soit l'origine des données : un flux Power Automate, une application personnalisée, une importation ou l'interface utilisateur standard.
-
+ 
 # Prérequis
 
 - Le [SDK .NET 4.6.2](https://dotnet.microsoft.com/fr-fr/download/dotnet-framework/net462).

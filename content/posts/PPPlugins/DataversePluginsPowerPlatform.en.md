@@ -19,14 +19,14 @@ A **plugin** is a piece of C# code that runs directly inside the Dataverse execu
  
 - The [.NET SDK 4.6.2](https://dotnet.microsoft.com/fr-fr/download/dotnet-framework/net462)
 - Basic C# familiarity.
-
+ 
 # Steps
 ## Create a plugin project
 1. Open Visual Studio and create project.
 2. In dialog box choose **Class Library (.NET Framework)** and click next. 
 ![](images/PPPlugins/image1.png)
 2. Enter project name and choose **.NET Framework 4.6.2**
-3. Click `Create` button to create project. 
+3. Click `Create` button to create project.  
 ![](images/PPPlugins/image2.png)
 
 ## Add Xrm sdk Core Assemblies Nuget Package
